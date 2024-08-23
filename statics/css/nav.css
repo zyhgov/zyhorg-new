@@ -1,6 +1,7 @@
 @font-face {
 	font-family: 'PingFang';
-	src: url('../../PingFangSC-main/woff2/PingFangSC-Medium.woff2') format('truetype');
+/* 	src: url('../../PingFangSC-main/woff2/PingFangSC-Medium.woff2') format('truetype'); */
+	src: url('../font/PingFang.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
   }
