@@ -181,7 +181,7 @@
                 <img src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/statics/image/logo/oolong-music.png" alt="Icon" class="but-img">
                 <div class="hero-text-hei">无&nbsp;乐&nbsp;不&nbsp;欢</div>
                 <div class="hero-subtext-hei">这款音乐Web，专为爱音乐而来。</div>
-                <button class="hero-button-bg" id="err">
+                <button class="hero-button-bg" id="err2">
                     🎶&nbsp;畅听&nbsp;🎷
                 </button>
             </div>
@@ -377,11 +377,15 @@
             NProgress.done(); // 所有资源加载完毕后关闭进度条
             $('.fade').removeClass('out'); // 移除任何可能影响显示的类
         };
+        function showErrorMessage() {
+    alert('由于杖雍皓误操作导致源代码丢失，服务现不可用！错误代码 01-08-2564, 我们需要帮助！如果您能熟练使用git操作，请与我们联系【mail : info@zyhorg.cn】,感谢！');
+        }
+
         var forgetLink = document.getElementById('err');
-        forgetLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            alert('由于杖雍皓误操作导致源代码丢失，服务现不可用！错误代码 01-08-2564, 我们需要帮助！如果您能熟练使用git操作，请与我们联系【mail : info@zyhorg.cn】,感谢！');
-        });
+        forgetLink.addEventListener('click', showErrorMessage);
+
+        var forgetLink2 = document.getElementById('err2');
+        forgetLink2.addEventListener('click', showErrorMessage);
     </script>
 <!-- <script src="./bing-webmaster.js"></script> -->
 </body>
