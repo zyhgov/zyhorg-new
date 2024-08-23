@@ -1,0 +1,109 @@
+/* 底部信息区域样式 */
+.footer-section {
+    background-color: #f5f5f7;
+    padding: 20px 15%; /* 上下各20像素，左右10%的空间 */
+    text-align: center; /* 文字居中对齐 */
+    font-family: PingFang;
+}
+
+.footer-content {
+    max-width: 1200px; /* 最大宽度1200像素 */
+    margin: 0 auto; /* 自动居中 */
+    display: flex;
+    flex-direction: column; /* 垂直布局 */
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-section-top, .footer-section-bottom {
+    width: 100%;
+    margin-bottom: 5px; /* 上下留出间距 */
+}
+
+.footer-divider {
+    border: none;
+    border-top: 1px solid #ccc; /* 分隔线样式 */
+    width: 100%; /* 宽度100% */
+    margin: 20px 0; /* 上下20像素的外边距 */
+}
+
+.footer-section h3 {
+    text-align: left;
+    color: #333;
+}
+
+.footer-section p {
+    text-align: left;
+    color: #666;
+    line-height: 1.6;
+    font-size: 12px;
+}
+
+
+/* =============================== */
+
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+    /* margin-top: 20px; */
+}
+
+.footer-column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.footer-section h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
+    /* font-weight: 800; */
+}
+
+.footer-section ul {
+    text-align: left;
+    list-style-type: none;
+    padding: 0;
+    width: 180px;
+    /* display: none;  */
+}
+
+.footer-section li {
+    margin-bottom: 5px;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-section a:hover {
+    color: #007BFF;
+}
+
+/* 使底部信息在小屏幕上垂直排列 */
+@media (max-width: 768px) {
+    .footer-section-top p {
+        font-size: 10px;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        margin-bottom: 20px; /* 底部间距 */
+        font-size: 15px;
+    }
+
+    .footer-section ul {
+        width: 100%; /* 在小屏幕上占满宽度 */
+        text-align: center; /* 文字居中对齐 */
+    }
+
+    .footer-column h3 {
+        text-align: center; /* 标题居中对齐 */
+        font-size: 18px;
+    }
+}
