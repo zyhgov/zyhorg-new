@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站域名证书信息</title>
+    <link rel="icon" href="/statics/image/logo/favicon.ico" sizes="64x64" type="image/x-icon">
+    <link rel="stylesheet" href="/statics/css/nav.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0; /* 可选的背景颜色，以便更好查看阴影效果 */
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* 垂直堆叠子元素 */
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        .centered-image {
+            margin-top: 60%;
+            max-width: 90%; /* 图片最大宽度为容器的90%，保持比例并适应不同屏幕 */
+            max-height: 90vh; /* 图片最大高度为视口高度的90%，防止过大 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加阴影效果，可以根据需要调整参数 */
+            border-radius: 5px; /* 可选，为图片添加圆角效果 */
+        }
+        .title{
+            text-align: center;font-size: 2.5em;font-weight: bold;color: #000;
+        }
+        #account {
+            background-color: #ffffffb9; /* 背景色 */
+            border-radius: 12px; /* 圆角 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+            padding: 20px; /* 内边距 */
+            max-width: 100%; /* 最大宽度 */
+            margin: 20px auto; /* 上下边距和水平居中 */
+        }
+        #account .info {
+            flex: 1; /* 使信息区域填满剩余空间 */
+            margin-left: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 创建两列，每列宽度相等 */
+            grid-gap: 10px; /* 列之间添加间隔 */
+        }
+        .info p {
+            text-align: 0.8em;
+        }
+        #account p {
+            margin: 0;
+            font-size: 1.4em;
+            margin-bottom: 10px; /* 段落与其他内容的间距 */
+            color: #010101; /* 段落颜色 */
+            line-height: 1.5; /* 行高 */
+        }
+
+        #account span {
+            font-size: 1em;
+            color: #000; /* 信息文本颜色 */
+        }
+
+        @media screen and (max-width: 768px) {
+            .centered-image {
+            margin-top: 120%;
+            max-width: 90%; /* 图片最大宽度为容器的90%，保持比例并适应不同屏幕 */
+            max-height: 90vh; /* 图片最大高度为视口高度的90%，防止过大 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加阴影效果，可以根据需要调整参数 */
+            border-radius: 5px; /* 可选，为图片添加圆角效果 */
+            }
+            .title{
+            text-align: center;font-size: 1.5em;font-weight: bold;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-content">
+            
+            <div class="logo">
+                <img src="/statics/image/logo/zyh-logo.png" alt="MyLogo">
+            </div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <img src="/statics/image/but/菜单.svg" alt="MenuIcon">
+            </div>
+            <div class="close-icon" onclick="toggleMenu()">
+                <img src="/statics/image/but/叉叉.svg" alt="CloseIcon">
+            </div>
+            
+            <div class="nav-links">
+                <a href="/index.html" target="_blank">新版网站</a>
+                <a href="/old-index.html" target="_blank">旧版网站</a>
+                <a href="#" target="_blank">杖雍皓</a>
+                <a href="https://www.suntory.com.cn/foods/oolong/" target="_blank">乌龙茶不乌龙</a>
+                <a href="https://codeease.top/tools/" target="_blank">助力开发者</a>
+                <a href="/new-func/oolong_func.html" target="_blank">主要分布页面</a>
+                <a href="/ConcentratedNews/container.html" target="_blank">集中发布</a>
+                <a href="/info-card/index.html" target="_blank">个人信息</a>
+            </div>
+            <div class="logo-2">
+                <img src="/statics/image/logo/wlcbwl-oolong-lanlv.png" alt="wlcbwlLogo">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <img src="zyhorg.cn.png" alt="zyhorg.cn网站域名证书信息" class="centered-image">
+        
+        <div id="account">
+            <p class="title">※ 中国国家顶级域名证书 ※</p>
+            <p style="font-size: 0.8em;color: #3c3c3c;">
+                域名 zyhorg.cn已由 张永豪 注册,并已在国内顶级域名数据库中记录。
+            </p>
+            <div class="info">
+                <p style="font-size: 1.2em;">域名:<span>zyhorg.cn</span> </p>
+                <p style="font-size: 1.2em;">域名持有者:<span>张永豪</span> </p>
+                <p style="font-size: 1.2em;">域名所属注册机构:<span>阿里云计算有限公司</span> </p>
+
+            </div>
+            <div style="height: 40px;"></div>
+            <p style="text-align: center;font-size: 1em;">页面由杖雍皓 | 乌龙茶不乌龙 | 阿里云计算有限公司 联合制作</p>
+            <div style="height: 10px;"></div>
+        </div>
+    </div>
+    
+
+</body>
+</html>
