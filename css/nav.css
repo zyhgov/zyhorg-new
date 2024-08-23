@@ -1,0 +1,163 @@
+@font-face {
+	font-family: 'PingFang';
+	src: url('../font/PingFang.woff2') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+  }
+
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'PingFang';
+    /* font-family: 'PingFang SC'; */
+    /* font-family: 'Helvetica Neue'; */
+    /* font-family: 'San Francisco'; */
+    /* font-family: 'SF Pro Text'; */
+    /* font-family: 'SF Pro'; */
+    /* font-family: 'SF Mono'; */
+    /* font-family: 'Avenir Next'; */
+    /* font-family: 'Myriad Pro'; */
+    /* font-family: 'Apple Color Emoji'; */
+    /* font-family: 'New York'; */
+    /* font-family: 'Geneva'; */
+    /* font-family: 'Times New Roman'; */
+    box-sizing: border-box;
+}
+
+.navbar {
+    font-family: 'PingFang';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 30px;
+    background-color: #FBFBFD;
+    transition: background-color 0.3s, backdrop-filter 0.3s;
+    z-index: 1000; /* 确保导航栏始终在最顶层 */
+}
+
+.navbar.scrolled {
+    background-color: rgba(251, 251, 253, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    margin-top: 5px;
+    height: 30px; /* 调整大小为需要的高度 */
+}
+.logo-2 img {
+    margin-top: 5px;
+    height: 30px; /* 调整大小为需要的高度 */
+}
+.menu-icon, .close-icon {
+    cursor: pointer;
+    display: none; /* 初始隐藏菜单图标 */
+}
+
+.menu-icon img, .close-icon img {
+    height: 30px; /* 根据实际图片大小调整 */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+    color: #1D1D1F;
+    font-size: 18px;
+    transition: color 0.3s;
+    display: block; /* 确保链接在小屏幕下能垂直排列 */
+}
+
+.nav-links a:hover {
+    color: #007BFF;
+    
+}
+
+.content {
+    margin-top: 60px; /* 根据导航栏高度调整此值 */
+    padding: 20px;
+}
+
+.menu-icon,.close-icon{
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .nav-links, .logo-2 {
+        display: none;
+    }
+    .close-icon {
+        display: none;
+    }
+    .menu-icon {
+        display: block;
+    }
+    .nav-links {
+        justify-content: flex-start; /* 左对齐链接 */
+        margin-left: 0; /* 移除左侧空白 */
+
+    }
+    .navbar-content {
+        align-items: center; /* 删除 */
+        justify-content: space-between; /* 居左和居右 */
+        width: 80%;
+    }
+    /* 新增样式来控制展开的动画 */
+    .nav-links.expanded {
+        display: flex;
+        flex-direction: column; /* 在小屏上堆叠链接 */
+        position: absolute; /* 绝对定位到导航栏下方 */
+        top: 60px; /* 假设导航栏高度为60px，需要根据实际调整 */
+        left: 0;
+        width: 100%;
+        background-color: #FBFBFD;
+        animation: slideDown 0.3s ease-in-out forwards;
+        height: calc(100vh - 60px); /* 确保内容铺满全屏减去导航栏高度 */
+        overflow-y: auto; /* 添加滚动条以防内容超出屏幕高度 */
+    }
+    .nav-links.expanded a {
+        display: block; /* 让链接块级显示以应用宽度和边框 */
+        padding: 15px 0; /* 上下内边距以适应边框 */
+        text-align: left; /* 文本左对齐 */
+        font-size: 1.5em; /* 增大字体大小，根据需要调整 */
+        border-top: 1px solid #ccc; /* 每个链接上边框 */
+        color: #333; /* 文字颜色，可根据需要调整 */
+        text-decoration: none; /* 移除下划线 */
+        width: 80%;
+        /* margin-left: 20px; */
+        padding: 20px 15%;
+    }
+    .nav-links.expanded a:hover {
+        color: #007BFF;
+        
+    }
+    
+    .nav-links.expanded a:first-child {
+        border-top: none; /* 移除第一个链接的上边框 */
+    }
+}
+
+/* 动画关键帧 */
+@keyframes slideDown {
+    from {transform: translateY(-100%);}
+    to {transform: translateY(0);}
+}
+@keyframes slideUp {
+    from {transform: translateY(0);}
+    to {transform: translateY(-100%);}
+}
