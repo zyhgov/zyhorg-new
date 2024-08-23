@@ -1,0 +1,185 @@
+@font-face {
+    font-family: 'PingFang'; /* 自定义字体名 */
+    src: url('../../font/PingFangSC-Regular.woff2') format('woff2'); /* 更新为在线URL及正确的格式 */
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+body, html {
+font-family: 'PingFang'; /* 将页面字体设置为 'PingFang' */
+}
+
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	background: #ffffff;
+}
+
+body * {
+	box-sizing: border-box;
+}
+
+*:before,
+*:after {
+	content: "";
+	position: absolute;
+	box-sizing: border-box;
+}
+
+.wrapper {
+	display: grid;
+	grid-gap: 1.1vmin;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: 1fr;
+	width: calc(100% - 2vmin);
+	height: calc(100% - 4vmin);
+	margin: 2vmin;
+}
+
+/*** items ***/
+.item {
+	width: auto;
+	min-height: 0;
+	position: relative;
+}
+
+.item:nth-child(1) {
+	grid-column: 1 / span 2;
+	grid-row: 1 / 20;
+	clip-path: polygon(0 0, 80% 0, 73% 82%, 0 95%);
+	background: #ff4a4a;
+}
+
+.item:nth-child(2) {
+	grid-column: 2 / span 2;
+	grid-row: 1 / 20;
+	clip-path: polygon(32% 0, 100% 0, 100% 68%, 25% 81%);
+	background: #f7941d;
+}
+
+.item:nth-child(3) {
+	grid-column: 1 / span 1;
+	grid-row: 17 / 50;
+	clip-path: polygon(0 8%, 0% 87%, 87% 88%, 98% 3%);
+	background: #ffde14;
+}
+
+.item:nth-child(4) {
+	grid-column: 2 / span 1;
+	grid-row: 15 / 47;
+	clip-path: polygon(14% 9.5%, 4% 97.5%, 99% 99%, 99% 4.5%);
+	margin-left: -15%;
+	background: #8ec63f;
+}
+
+.item:nth-child(5) {
+	grid-column: 3 / span 1;
+	grid-row: 13 / 48;
+	clip-path: polygon(15% 9.5%, 15% 96.25%, 100% 97.5%, 100% 5%);
+	margin-left: -15%;
+	background: #27aae2;
+}
+
+.item:nth-child(6) {
+	grid-column: 1 / span 2;
+	grid-row: 70 / 45;
+	clip-path: polygon(0% 6%, 75% 8.5%, 80% 100%, 0 100%);
+	background: #8047b2;
+}
+
+.item:nth-child(7) {
+	grid-column: 2 / span 2;
+	grid-row: 70 / 45;
+	clip-path: polygon(27% 9%, 100% 12%, 100% 100%, 32% 100%);
+	background: #dd65d8;
+}
+
+/*** drawings ***/
+.item:before {
+	width: 100%;
+	height: 100%;
+	transition: all 0.5s ease 0s;
+}
+
+.item:hover:before {
+	opacity: 0;
+}
+
+.item:nth-child(1):before {
+	background: 
+		radial-gradient(circle at 60% 50%, #ff4a4a 0 4vmin, #fff0 50vmin 100%), 
+		repeating-conic-gradient(from 0deg at 60% 50%, #ff4a4a 0 6deg, #e6282a 0 12deg);
+}
+
+.item:nth-child(2):before {
+	background: 
+		linear-gradient(180deg, #f7941d 0 10%, #fff0 90% 100%),
+		repeating-linear-gradient(80deg, #f7941d 0 2px, #ffb862 3px 4px, #f7941d 5px);
+}
+
+.item:nth-child(3):before {
+	--c2: #FF9800;
+	background: 
+		repeating-linear-gradient(30deg, var(--c2), #000, var(--c2) 2%), 
+		repeating-linear-gradient(-60deg, var(--c2), #000, var(--c2) 2%), 
+		linear-gradient(30deg, #000, var(--c2));
+	background-blend-mode: color-dodge;
+	filter: contrast(5);
+	mix-blend-mode: soft-light;
+}
+
+.item:nth-child(4):before {
+	background: 
+		linear-gradient(140deg, #000 0%, #777 75%), 
+		repeating-radial-gradient(circle at 100% 50%, #000, #999, #000 5%), 
+		radial-gradient(circle at 100% 50%, #777, #000);
+	background-blend-mode: screen;
+	filter: contrast(5) blur(6px);
+	mix-blend-mode: soft-light;
+}
+
+.item:nth-child(5):before {
+	background: 
+		linear-gradient(15deg, #777 0%, #000), linear-gradient(15deg, #777 50%, #000), 
+		repeating-linear-gradient(-45deg, #000, #999, #000 2%), 
+		repeating-linear-gradient(45deg, #000, #999, #000 2%);
+	background-blend-mode: exclusion;
+	filter: contrast(1);
+	mix-blend-mode: soft-light;
+}
+
+.item:nth-child(6):before {
+	--c2: #8047b2;
+	background: 
+		linear-gradient(180deg, #fff -50%, #fff0 100%), 
+		repeating-linear-gradient(30deg, var(--c2), #ce7fdb, var(--c2) 1%), 
+		repeating-linear-gradient(-60deg, var(--c2), #69007b, var(--c2) 1%), 
+		linear-gradient(30deg, #4b364f, var(--c2));
+	background-blend-mode: overlay;
+	filter: contrast(20) blur(1px);
+	mix-blend-mode: luminosity;
+}
+
+.item:nth-child(7):before {
+	background: 
+		radial-gradient(circle at 0% 0%, #b150ac 0 20vmin, #fff0 90vmin 100%), 
+		radial-gradient(circle at 100% 100%, #dd65d8 0 10vmin, #fff0 50vmin 100%), 
+		repeating-conic-gradient(from 0deg at 100% 100%, #dd65d8 0 1deg, #b150ac80 1.1deg 1.9deg, #dd65d8 2deg),
+		repeating-conic-gradient(from 0deg at 100% 100%, #dd65d8 0 6deg, #b150ac 0 12deg);
+}
+
+
+
+.yi{
+	margin-left: 20%;
+	margin-top: 5%;
+	font-size: 3em;
+
+}

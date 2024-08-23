@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>device</title>
+    <style>
+            @font-face {
+                font-family: 'PingFang'; /* 自定义字体名 */
+                src: url('/font/PingFangSC-Regular.woff2') format('woff2'); /* 更新为在线URL及正确的格式 */
+                font-weight: normal;
+                font-style: normal;
+            }
+            
+            body, html {
+            font-family: 'PingFang'; /* 将页面字体设置为 'PingFang' */
+            }
+
+            body {
+
+                margin: 0;
+                display: flex;
+            }
+            #device {
+
+        padding: 20px; /* 内边距 */
+        max-width: 100%; /* 最大宽度 */
+        margin: 0px auto; /* 上下边距和水平居中 */
+        }
+
+        /* 设备信息部分的样式 */
+        #device-info-table, #headers-table, #javascript-table, #fingerprint-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div id="device">
+<!-- IP 地址表格 -->
+<h2>IP 地址</h2>
+<table id="device-info-table">
+    <thead>
+        <tr>
+            <th>属性</th>
+            <th>值</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>IP 地址</td>
+            <td id="ip-address">加载中...</td>
+        </tr>
+        <tr>
+            <td>位置</td>
+            <td id="location">加载中...</td>
+        </tr>
+        <tr>
+            <td>运营商</td>
+            <td id="isp">加载中...</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- 浏览器指纹 General 部分 -->
+<h2>浏览器指纹 - General</h2>
+<table id="general-table">
+    <thead>
+        <tr>
+            <th>属性</th>
+            <th>值</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>IP 地址</td>
+            <td id="general-ip">加载中...</td>
+        </tr>
+        <tr>
+            <td>Host</td>
+            <td id="general-host">加载中...</td>
+        </tr>
+        <tr>
+            <td>Protocol</td>
+            <td id="general-protocol">加载中...</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- 请求头表格 -->
+<h2>请求头</h2>
+<table id="headers-table">
+    <thead>
+        <tr>
+            <th>属性</th>
+            <th>值</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Accept</td>
+            <td id="accept">加载中...</td>
+        </tr>
+        <tr>
+            <td>Connection</td>
+            <td id="connection">加载中...</td>
+        </tr>
+        <tr>
+            <td>Host</td>
+            <td id="host-header">加载中...</td>
+        </tr>
+        <tr>
+            <td>User-Agent</td>
+            <td id="user-agent">加载中...</td>
+        </tr>
+        <tr>
+            <td>Accept-Encoding</td>
+            <td id="accept-encoding">加载中...</td>
+        </tr>
+        <tr>
+            <td>Accept-Language</td>
+            <td id="accept-language">加载中...</td>
+        </tr>
+        <tr>
+            <td>Cookie</td>
+            <td id="cookie">加载中...</td>
+        </tr>
+        <tr>
+            <td>Referer</td>
+            <td id="referer">加载中...</td>
+        </tr>
+        <tr>
+            <td>Upgrade-Insecure-Requests</td>
+            <td id="upgrade-insecure-requests">加载中...</td>
+        </tr>
+        <tr>
+            <td>X-Real-IP</td>
+            <td id="x-real-ip">加载中...</td>
+        </tr>
+        <tr>
+            <td>X-Forwarded-For</td>
+            <td id="x-forwarded-for">加载中...</td>
+        </tr>
+        <tr>
+            <td>sec-ch-ua</td>
+            <td id="sec-ch-ua">加载中...</td>
+        </tr>
+        <tr>
+            <td>sec-ch-ua-mobile</td>
+            <td id="sec-ch-ua-mobile">加载中...</td>
+        </tr>
+        <tr>
+            <td>sec-ch-ua-platform</td>
+            <td id="sec-ch-ua-platform">加载中...</td>
+        </tr>
+        <tr>
+            <td>sec-fetch-site</td>
+            <td id="sec-fetch-site">加载中...</td>
+        </tr>
+        <tr>
+            <td>sec-fetch-mode</td>
+            <td id="sec-fetch-mode">加载中...</td>
+        </tr>
+        <tr>
+            <td>sec-fetch-user</td>
+            <td id="sec-fetch-user">加载中...</td>
+        </tr>
+        <tr>
+            <td>sec-fetch-dest</td>
+            <td id="sec-fetch-dest">加载中...</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- 浏览器指纹 JavaScript 属性部分 -->
+<h2>浏览器指纹 - JavaScript 属性</h2>
+<table id="javascript-table">
+    <thead>
+        <tr>
+            <th>属性</th>
+            <th>值</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>userAgent</td>
+            <td id="user-agent-value">加载中...</td>
+        </tr>
+        <tr>
+            <td>platform</td>
+            <td id="platform">加载中...</td>
+        </tr>
+        <tr>
+            <td>vendor</td>
+            <td id="vendor">加载中...</td>
+        </tr>
+        <tr>
+            <td>appName</td>
+            <td id="app-name">加载中...</td>
+        </tr>
+        <tr>
+            <td>product</td>
+            <td id="product">加载中...</td>
+        </tr>
+        <tr>
+            <td>appVersion</td>
+            <td id="app-version">加载中...</td>
+        </tr>
+        <tr>
+            <td>cookieEnabled</td>
+            <td id="cookie-enabled">加载中...</td>
+        </tr>
+        <tr>
+            <td>deviceMemory</td>
+            <td id="device-memory">加载中...</td>
+        </tr>
+        <tr>
+            <td>hardwareConcurrency</td>
+            <td id="hardware-concurrency">加载中...</td>
+        </tr>
+        <tr>
+            <td>language</td>
+            <td id="language">加载中...</td>
+        </tr>
+        <tr>
+            <td>screen resolution</td>
+            <td id="screen-resolution">加载中...</td>
+        </tr>
+        <tr>
+            <td>pixelRatio</td>
+            <td id="pixel-ratio">加载中...</td>
+        </tr>
+        <tr>
+            <td>实际分辨率</td>
+            <td id="actual-resolution">加载中...</td>
+        </tr>
+        <tr>
+            <td>colorDepth</td>
+            <td id="color-depth">加载中...</td>
+        </tr>
+        <tr>
+            <td>local time</td>
+            <td id="local-time">加载中...</td>
+        </tr>
+        <tr>
+            <td>time zone</td>
+            <td id="time-zone">加载中...</td>
+        </tr>
+        <tr>
+            <td>maxTouchPoints</td>
+            <td id="max-touch-points">加载中...</td>
+        </tr>
+        <tr>
+            <td>plugin</td>
+            <td id="plugins">加载中...</td>
+        </tr>
+        <tr>
+            <td>webgl vendor</td>
+            <td id="webgl-vendor">加载中...</td>
+        </tr>
+        <tr>
+            <td>webgl renderer</td>
+            <td id="webgl-renderer">加载中...</td>
+        </tr>
+        <tr>
+            <td>canvas 画布指纹</td>
+            <td id="canvas-fingerprint"><img id="canvas-image" src="" alt="Canvas Fingerprint" style="max-width: 200px;"></td>
+        </tr>
+        <tr>
+            <td>fonts 字体指纹</td>
+            <td id="fonts-fingerprint">加载中...</td>
+        </tr>
+        <tr>
+            <td>audio 音频指纹</td>
+            <td id="audio-fingerprint">加载中...</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const ipAddressElement = document.getElementById('ip-address');
+    const locationElement = document.getElementById('location');
+    const ispElement = document.getElementById('isp');
+    
+    // 浏览器指纹 - General
+    const generalIpElement = document.getElementById('general-ip');
+    const generalHostElement = document.getElementById('general-host');
+    const generalProtocolElement = document.getElementById('general-protocol');
+
+    // 请求头
+    const acceptElement = document.getElementById('accept');
+    const connectionElement = document.getElementById('connection');
+    const hostHeaderElement = document.getElementById('host-header');
+    const userAgentElement = document.getElementById('user-agent');
+    const acceptEncodingElement = document.getElementById('accept-encoding');
+    const acceptLanguageElement = document.getElementById('accept-language');
+    const cookieElement = document.getElementById('cookie');
+    const refererElement = document.getElementById('referer');
+    const upgradeInsecureRequestsElement = document.getElementById('upgrade-insecure-requests');
+    const xRealIpElement = document.getElementById('x-real-ip');
+    const xForwardedForElement = document.getElementById('x-forwarded-for');
+    const secChUaElement = document.getElementById('sec-ch-ua');
+    const secChUaMobileElement = document.getElementById('sec-ch-ua-mobile');
+    const secChUaPlatformElement = document.getElementById('sec-ch-ua-platform');
+    const secFetchSiteElement = document.getElementById('sec-fetch-site');
+    const secFetchModeElement = document.getElementById('sec-fetch-mode');
+    const secFetchUserElement = document.getElementById('sec-fetch-user');
+    const secFetchDestElement = document.getElementById('sec-fetch-dest');
+
+    // 浏览器指纹 - JavaScript 属性
+    const userAgentValueElement = document.getElementById('user-agent-value');
+    const platformElement = document.getElementById('platform');
+    const vendorElement = document.getElementById('vendor');
+    const appNameElement = document.getElementById('app-name');
+    const productElement = document.getElementById('product');
+    const appVersionElement = document.getElementById('app-version');
+    const cookieEnabledElement = document.getElementById('cookie-enabled');
+    const deviceMemoryElement = document.getElementById('device-memory');
+    const hardwareConcurrencyElement = document.getElementById('hardware-concurrency');
+    const languageElement = document.getElementById('language');
+    const screenResolutionElement = document.getElementById('screen-resolution');
+    const pixelRatioElement = document.getElementById('pixel-ratio');
+    const actualResolutionElement = document.getElementById('actual-resolution');
+    const colorDepthElement = document.getElementById('color-depth');
+    const localTimeElement = document.getElementById('local-time');
+    const timeZoneElement = document.getElementById('time-zone');
+    const maxTouchPointsElement = document.getElementById('max-touch-points');
+    const pluginsElement = document.getElementById('plugins');
+    const webglVendorElement = document.getElementById('webgl-vendor');
+    const webglRendererElement = document.getElementById('webgl-renderer');
+    const canvasFingerprintElement = document.getElementById('canvas-fingerprint');
+    const fontsFingerprintElement = document.getElementById('fonts-fingerprint');
+    const audioFingerprintElement = document.getElementById('audio-fingerprint');
+    const canvasImageElement = document.getElementById('canvas-image');
+
+    // 获取用户的 IP 地址和位置
+    fetch('https://api.ipgeolocation.io/ipgeo?apiKey=YOUR_API_KEY')
+        .then(response => response.json())
+        .then(data => {
+            ipAddressElement.textContent = data.ip;
+            locationElement.textContent = `${data.city}, ${data.state_prov}, ${data.country_name}`;
+            ispElement.textContent = data.isp;
+
+            // General
+            generalIpElement.textContent = data.ip;
+            generalHostElement.textContent = 'www.toolhelper.cn';  // 示例值
+            generalProtocolElement.textContent = 'HTTP/1.0';  // 示例值
+
+            // 请求头
+            acceptElement.textContent = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7';
+            connectionElement.textContent = 'keep-alive';
+            hostHeaderElement.textContent = 'www.toolhelper.cn';
+            userAgentElement.textContent = navigator.userAgent;
+            acceptEncodingElement.textContent = 'gzip, deflate, br';
+            acceptLanguageElement.textContent = 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6';
+            cookieElement.textContent = document.cookie;
+            refererElement.textContent = 'https://www.toolhelper.cn/Http/MyIp';
+            upgradeInsecureRequestsElement.textContent = '1';
+            xRealIpElement.textContent = data.ip;
+            xForwardedForElement.textContent = data.ip;
+            secChUaElement.textContent = '"Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"';
+            secChUaMobileElement.textContent = '?0';
+            secChUaPlatformElement.textContent = '"Windows"';
+            secFetchSiteElement.textContent = 'same-origin';
+            secFetchModeElement.textContent = 'navigate';
+            secFetchUserElement.textContent = '?1';
+            secFetchDestElement.textContent = 'document';
+
+            // JavaScript 属性
+            userAgentValueElement.textContent = navigator.userAgent;
+            platformElement.textContent = navigator.platform;
+            vendorElement.textContent = navigator.vendor;
+            appNameElement.textContent = navigator.appName;
+            productElement.textContent = navigator.product;
+            appVersionElement.textContent = navigator.appVersion;
+            cookieEnabledElement.textContent = navigator.cookieEnabled;
+            deviceMemoryElement.textContent = navigator.deviceMemory || '未知';
+            hardwareConcurrencyElement.textContent = navigator.hardwareConcurrency || '未知';
+            languageElement.textContent = navigator.language;
+            screenResolutionElement.textContent = `${screen.width} x ${screen.height}`;
+            pixelRatioElement.textContent = window.devicePixelRatio;
+            actualResolutionElement.textContent = `${window.screen.availWidth} x ${window.screen.availHeight}`;
+            colorDepthElement.textContent = screen.colorDepth;
+            localTimeElement.textContent = new Date().toLocaleString();
+            timeZoneElement.textContent = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            maxTouchPointsElement.textContent = navigator.maxTouchPoints;
+            pluginsElement.textContent = Array.from(navigator.plugins).map(plugin => plugin.name).join(', ');
+            webglVendorElement.textContent = (function() {
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl');
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                return debugInfo ? gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL) : 'unknown';
+            })();
+            webglRendererElement.textContent = (function() {
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl');
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                return debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : 'unknown';
+            })();
+            canvasFingerprintElement.innerHTML = `<img src="${(function() {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                ctx.textBaseline = 'top';
+                ctx.font = '14px Arial';
+                ctx.fillText('test', 2, 2);
+                return canvas.toDataURL();
+            })()}" alt="Canvas Fingerprint" style="max-width: 200px;">`;
+            fontsFingerprintElement.textContent = 'example-fonts';  // 这里需要实际的字体检测实现
+            audioFingerprintElement.textContent = 'example-audio';  // 这里需要实际的音频分析实现
+        })
+        .catch(error => {
+            console.error('Error fetching IP and location data:', error);
+            ipAddressElement.textContent = '无法获取';
+            locationElement.textContent = '无法获取';
+            ispElement.textContent = '无法获取';
+        });
+});
+
+</script>
+</body>
+</html>

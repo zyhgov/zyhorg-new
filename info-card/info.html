@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息页面</title>
+    <link rel="icon" href="../statics/image/logo/favicon.ico" sizes="64x64" type="image/x-icon">
+    <link rel="stylesheet" href="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/info-card/bg/style.css">
+    <!-- <link rel="stylesheet" href="../new-func/home/styles/pingfang.css"> -->
+    <link rel="stylesheet" href="info.css">
+    <link rel="stylesheet" href="common.css">
+    
+</head>
+<body>
+<!-- ▲loading -->
+<div class="loadingOverlay js-loading">
+    <div class="loadingLogo">
+        <img src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/ConcentratedNews/img/xxfbzx.png" alt="LOADING..." class="loading_dc"/>
+        <img src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/ConcentratedNews/img/loging.gif" alt="LOADING..."/>
+        </div>
+    </div>
+<!-- ▲loading -->
+    <!-- partial:index.partial.html -->
+<div class="gradient-bg">
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+          <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+      </defs>
+    </svg>
+    <div class="gradients-container">
+      <div class="g1"></div>
+      <div class="g2"></div>
+      <div class="g3"></div>
+      <div class="g4"></div>
+      <div class="g5"></div>
+      <div class="interactive"></div>
+    </div>
+  </div>
+<!-- partial -->
+<!-- 在<body>的合适位置插入提示图片的div -->
+    <div class="mobile-warning">
+        <p style="color: white; text-align: center; font-size: 2.5em; margin-top: 30%;font-family:'PingFang SC';font-weight: bold;">
+            最佳观看体验
+        </p>
+        <p style="color: white; text-align: center; font-size: 1.5em; margin-top: 5px;font-family:'PingFang SC';">
+            请使用电脑或大屏设备访问以获得最佳体验
+        </p>
+        <p style="color: white; text-align: center; font-size: 1.5em; margin-top: 5px;font-family:'PingFang SC';">
+            我们正在使得我们的用户界面符合<br>移动端小屏幕的视觉审美
+        </p>
+    </div>
+
+    <div class="sidebar">
+
+        <div class="profile">
+            <img src="avatar.png" alt="头像" class="avatar">
+            <div class="details">
+                <h2 id="name"></h2>
+                <p id="studentId"></p>
+            </div>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li data-tab="account">
+                    <svg t="1721638109735" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2368" width="15" height="15"><path d="M929.297616 105.70139 93.865319 105.70139c-17.23043 0-31.159674 13.96813-31.159674 31.18935l0 722.255655c0 17.249873 13.928221 31.198559 31.159674 31.198559L265.029654 890.344954c17.209964 0 31.15865-13.948687 31.15865-31.198559l0-56.494689c0-15.569604 12.707416-28.278043 28.316929-28.278043 15.609513 0 28.316929 12.70844 28.316929 28.278043l0 56.494689c0 17.249873 13.948687 31.198559 31.159674 31.198559l255.17675 0c17.23043 0 31.179117-13.948687 31.179117-31.198559l0-56.494689c0-15.569604 12.70844-28.278043 28.297486-28.278043 15.609513 0 28.316929 12.70844 28.316929 28.278043l0 56.494689c0 17.249873 13.96813 31.198559 31.18014 31.198559l171.165358 0c17.23043 0 31.179117-13.948687 31.179117-31.198559L960.476733 136.89074C960.476733 119.66952 946.528046 105.70139 929.297616 105.70139M898.1185 827.985698 789.290909 827.985698l0-25.335015c0-49.971112-40.665165-90.655719-90.655719-90.655719-49.971112 0-90.655719 40.684608-90.655719 90.655719l0 25.335015L415.161976 827.985698l0-25.335015c0-49.971112-40.665165-90.655719-90.655719-90.655719-50.030463 0-90.655719 40.684608-90.655719 90.655719l0 25.335015L125.02397 827.985698 125.02397 168.079066 898.1185 168.079066 898.1185 827.985698zM283.721365 395.888516c0 7.764847 5.963829 14.159488 13.367449 14.159488 0.060375 0 0.140193-0.039909 0.240477-0.039909 2.761903 37.300534 32.119535 74.652234 68.022233 74.652234 35.882232 0 65.259306-37.3517 68.022233-74.652234 0.079818 0 0.119727 0.039909 0.220011 0.039909 7.424086 0 13.348006-6.39464 13.348006-14.159488 0-5.77247-3.241834-10.715039-7.90504-12.927427 2.701528-8.405437 4.182252-17.339924 4.182252-26.705222 0-45.589314-34.860972-82.601276-77.867462-82.601276s-77.907371 37.011962-77.907371 82.601276c0 9.365298 1.480724 18.299785 4.161786 26.705222C287.003108 385.173476 283.721365 390.117069 283.721365 395.888516M199.869608 616.97689 530.812973 616.97689c4.002151 0 7.243985-3.201925 7.243985-7.243985l0-25.916253c0-1.982144-0.800225-3.861958-2.200108-5.243421-31.79924-30.879288-70.623477-52.656267-112.38972-63.073524-1.101077-0.549515-2.221598-0.881067-3.461845-0.881067l-3.802606 0c-1.200338 0-2.361791 0.291642-3.402493 0.881067-12.647041 6.735401-29.937846 10.616802-47.448662 10.616802s-34.860972-3.8814-47.449685-10.656711c-1.060145-0.549515-2.241041-0.841158-3.442402-0.841158l-2.741437 0c-0.540306 0-1.140986 0.039909-1.700735 0.192382-42.806945 10.146081-82.610486 32.204469-115.210975 63.763233-1.420349 1.381463-2.180666 3.2623-2.180666 5.243421l0 25.916253C192.625624 613.774965 195.867458 616.97689 199.869608 616.97689M586.587254 509.315868l232.002958 0c6.884804 0 12.467963-5.611811 12.467963-12.496615 0-6.843872-5.583159-12.468986-12.467963-12.468986L586.587254 484.350267c-6.884804 0-12.467963 5.624091-12.467963 12.468986C574.119291 503.704057 579.70245 509.315868 586.587254 509.315868M586.587254 410.729525l232.002958 0c6.884804 0 12.467963-5.574972 12.467963-12.478196 0-6.884804-5.583159-12.456706-12.467963-12.456706L586.587254 385.794623c-6.884804 0-12.467963 5.571902-12.467963 12.456706C574.119291 405.154553 579.70245 410.729525 586.587254 410.729525" fill="#515151" p-id="2369"></path></svg>
+                    &nbsp; 账户信息
+                </li>
+                <li data-tab="diy-info">
+                    <svg t="1721638246445" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3499" width="15" height="15"><path d="M878 467H648c-26 0-47 21-47 47s21 47 47 47h230c26 0 47-21 47-47s-21-47-47-47z m0 173H558.3c-26 0-47 21-47 47s21 47 47 47H878c26 0 47-21 47-47s-21-47-47-47z m0 161.3H465.8c-26 0-47 21-47 47s21 47 47 47H878c26 0 47-21 47-47s-21-47-47-47zM640.9 255.4c28-48.3 10.6-110.2-38.6-136.8l-36-19.4c-46.4-25.1-104.2-9.4-131.6 35.6L361 256l208 123.4 71.9-124z m-305.8 46.7L106.3 703.9l-4.7 218.2c-0.2 10.2 10.9 16.7 19.7 11.4l191.3-114L545.8 419 335.1 302.1z" p-id="3500" fill="#515151"></path></svg>
+                    &nbsp; 自定义信息
+                </li>
+                <li data-tab="device">
+                    <svg t="1721638287740" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4593" width="15" height="15"><path d="M895.89 160l0.11 0.11v575.78l-0.11 0.11H128.11l-0.11-0.11V160.11l0.11-0.11h767.78m0.11-64H128a64.19 64.19 0 0 0-64 64v576a64.19 64.19 0 0 0 64 64h768a64.19 64.19 0 0 0 64-64V160a64.19 64.19 0 0 0-64-64zM832 864H192v64h640v-64z" fill="#515151" p-id="4594"></path><path d="M576 736H448v128h128V736zM128 672h768v64H128zM512 256a160 160 0 1 1-113.14 46.86A159 159 0 0 1 512 256m0-64c-123.71 0-224 100.29-224 224s100.29 224 224 224 224-100.29 224-224-100.29-224-224-224z" fill="#515151" p-id="4595"></path><path d="M544 384h-64v160h64V384zM544 288h-64v64h64v-64z" fill="#515151" p-id="4596"></path></svg>
+                    &nbsp; 设备信息
+                </li>
+                <li data-tab="notice">
+                    <svg t="1721638327480" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5645" width="15" height="15"><path d="M801.706667 687.957333V388.949333c0-114.56-86.186667-238.506667-211.882667-283.946666C583.722667 44.288 543.146667 0 489.898667 0c-53.162667 0-93.866667 44.288-99.968 104.96-125.568 45.44-211.754667 169.429333-211.754667 283.989333v299.008l-88.490667 155.605334a33.152 33.152 0 0 0 28.8 49.493333h210.602667A164.48 164.48 0 0 0 489.898667 1024a164.352 164.352 0 0 0 160.768-130.944h212.138666a33.066667 33.066667 0 0 0 23.253334-56.746667l-84.394667-148.352zM489.856 66.389333c11.946667 0 21.589333 9.088 27.776 22.613334-9.216-0.938667-18.133333-3.114667-27.776-3.114667-9.642667 0-18.602667 2.133333-27.818667 3.114667 6.229333-13.525333 15.872-22.613333 27.818667-22.613334z m0 891.306667c-42.112 0-77.354667-27.050667-91.008-64.64h182.016c-13.653333 37.546667-48.810667 64.597333-91.008 64.597333z" fill="#515151" p-id="5646"></path></svg>
+                    &nbsp; 通知提示
+                </li>
+                <li data-tab="privacy">
+                    <svg t="1721638359364" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6710" width="15" height="15"><path d="M901.632 128L950.857143 131.657143v504.685714C950.857143 822.857143 557.129143 1024 512 1024c-49.225143 0-438.857143-201.142857-438.857143-387.657143V131.657143l53.321143-3.657143s61.513143-3.657143 172.251429-36.571429c110.738286-36.571429 184.576-76.8 184.576-76.8L512 0l32.804571 14.628571s69.741714 40.228571 184.576 76.8c106.642286 36.571429 172.251429 36.571429 172.251429 36.571429zM497.371429 658.285714L804.571429 348.598857 730.843429 292.571429l-245.76 247.113142-131.072-95.561142L292.571429 506.733714 497.371429 658.285714z" fill="#515151" p-id="6711"></path></svg>
+                    &nbsp; 隐私政策
+                </li>
+                <li data-tab="exit">
+                    <a href="index.html" style="color: #343434;text-decoration: none;">
+                    <svg t="1721715133605" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4529" width="15" height="15"><path d="M989.548402 447.475472l-137.198242-112.507424c-26.515263-21.771707-48.16534-11.433187-48.16534 22.744744v70.058677h-57.895712V76.140159c0-34.42119-27.853189-62.274379-62.274379-62.274379H76.83953c-28.826226 0-52.787267 19.582373-59.841787 46.097636l-2.432593-0.486519v881.814943l384.228056 68.96401v-62.27438h285.221523c34.42119 0 62.274379-27.853189 62.274379-62.274379V546.117116h57.895712v70.058677c0 34.299561 21.650077 44.516451 48.16534 22.744744l137.198242-112.507424c26.515263-21.650077 26.515263-57.165934 0-78.937641zM699.583323 839.001307c0 34.42119-27.853189 62.274379-62.274379 62.274379H398.793206V128.440907l-311.736786-55.949637c10.21689-7.419408 22.744744-11.919705 36.488894-11.919706H637.308944c34.42119 0 62.274379 27.853189 62.274379 62.27438v305.047155H561.655303c-17.14978 0-31.13719 13.987409-31.137189 31.13719v56.071267c0 17.14978 13.987409 31.13719 31.137189 31.13719h137.92802v292.762561z m0 0" fill="#515151" p-id="4530"></path></svg>
+                    &nbsp; 安全退出
+                    </a>
+                </li>
+                
+            </ul>
+            <div style="margin-top: 0;">
+                <iframe src="caidai/index.html" style="width:100%; height:350px; border:none;"></iframe>
+            </div>
+        </nav>
+    </div>
+    <div class="content">
+        <div id="account" class="tab-content active">
+            <h1>Oolong NetWorking System / 账户信息</h1>
+            <p style="font-size: 0.8em;">
+                *内容来源于杖雍皓数据湖，不涉及隐私内容，乌龙联网系统担保不会泄露个人信息给第三方机构。<br>
+                如果你不希望你的信息在此处出现，点击<a href="#" color: #007BFF;>销毁信息</a>我们将会把你的信息从数据湖中销毁。
+            </p>
+            <img src="avatar.png" alt="头像" class="avatar">
+            <div style="height: 20px;"></div>
+            <div class="info">
+                <p>姓名: &nbsp;&nbsp; <span id="accountName"> </span></p>
+                <p>性别: &nbsp;&nbsp; <span id="accountGender"> </span></p>
+                <p>学号: &nbsp;&nbsp; <span id="accountStudentId"> </span></p>
+                <p>专业: &nbsp;&nbsp; <span id="accountSpeciality"> </span></p>
+                <p>学校: &nbsp;&nbsp; <span id="accountSchool"> </span></p>
+                <p>院部: &nbsp;&nbsp; <span id="accountInstitute"> </span></p>
+                <p>班级: &nbsp;&nbsp; <span id="accountClass"> </span></p>
+                <p>学制: &nbsp;&nbsp; <span id="accountEs"> </span></p>
+            </div>
+            <div style="margin-top: 50px;">
+                <iframe src="Oolong-tea-is-not-oolong/index.html" style="width:100%; height:80vh; border:none;background-color: #ffffff00;border-radius: 12px;"></iframe>
+            </div>
+        </div>
+        
+        <div id="diy-info" class="tab-content">
+            <h1>自定义信息上传 | 问卷网支持</h1>
+            <p">我们保证不会在第三方保留您的信息超过24个小时。<br>在您的信息成功上传后，我们会尽快更新网页内容，请勿反复刷新。</p>
+            <div style="width:100%; height:100vh; border:none;background-color: #ffffff00;">
+                <!-- <script type="text/javascript" src="https://www.wenjuan.com/iframe/669e1eb6f4fdf7d09cbf8fb3/?params=hide_mobile_icon=true"></script> -->
+                <iframe src="https://www.wenjuan.com/s/UZBZJvbOrM/" style="width:100%; height:100vh; border:none;background-color: #ffffff00;"></iframe>
+            </div>
+        </div>
+        <div id="device" class="tab-content">
+            <h1>设备信息 | OpanAI提供支持</h1>
+            <p>我们坚定的保证用户隐私不被泄露，以下列出的信息均在监管范围内，不会暴露你的信息。</p>
+            <div>
+                <iframe src="device.html" style="width:100%; height:100vh; border:none;"></iframe>
+            </div>
+        </div>
+        <div id="notice" class="tab-content">
+            <h1>大数据湖 | 通知提示</h1>
+            <p>以下通知内容发出主体均为 Oolong NetWorking System</p>
+            <div id="iframes-container">
+                <!-- <iframe src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/info-card/inform/help.html" style="width:100%; height:220px; border:none;background-color: #ffffff00;"></iframe> -->
+                <!-- <iframe src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/info-card/inform/warning.html" style="width:100%; height:220px; border:none;background-color: #ffffff00;"></iframe> -->
+                <iframe src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/info-card/inform/success.html" style="width:100%; height:220px; border:none;background-color: #ffffff00;"></iframe>
+                <iframe src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/info-card/inform/collect.html" style="width:100%; height:220px; border:none;background-color: #ffffff00;"></iframe>
+                <!-- <iframe src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/info-card/inform/error.html" style="width:100%; height:220px; border:none;background-color: #ffffff00;"></iframe> -->
+            </div>
+            <!-- <div id="notification-container"></div> -->
+        </div>
+        <div id="privacy" class="tab-content">
+            <h1>ZYHORG | 隐私政策</h1>
+
+            <div>
+                <iframe src="privacy.html" style="width:100%; height:100vh; border:none;background-color: #ffffff00;"></iframe>
+            </div>
+
+        </div>
+    </div>
+<script src="info.js"></script>
+<script src="notice.js"></script>
+<script src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/info-card/bg/script.js"></script>
+<script src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/ConcentratedNews/js/jquery.min.js"></script>
+<script src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/ConcentratedNews/js/jquery.easing.min.js"></script>
+<script src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/ConcentratedNews/js/jquery.easy-rollover.js"></script>
+<script src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/ConcentratedNews/js/common.js"></script>
+
+</body>
+</html>

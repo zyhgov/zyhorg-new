@@ -1,0 +1,206 @@
+
+@font-face {
+    font-family: 'PingFang'; /* 自定义字体名 */
+    src: url('/font/PingFangSC-Semibold.woff2') format('woff2'); /* 更新为在线URL及正确的格式 */
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+body, html {
+font-family: 'PingFang'; /* 将页面字体设置为 'PingFang' */
+}
+
+body {
+    margin: 0;
+    display: flex;
+}
+.mobile-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('./login-bg.png'); /* 替换为你的图片路径 */
+    background-size: cover;
+    background-position: center;
+    display: none;
+    z-index: 9999;
+}
+
+/* 当屏幕宽度小于或等于700px时，显示全屏提示 */
+@media (max-width: 700px) {
+    .mobile-warning {
+        display: block;
+    }
+}
+.sidebar {
+    width: 260px;
+    background-color: #ffffffad;
+    border-right: 1px solid #e0e0e0;
+    position: fixed;
+    height: 100%;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.details h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.details p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu ul li {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.menu ul li:hover {
+    background-color: #ffffff;
+}
+
+.menu ul li.active {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.152);
+}
+
+.content {
+    margin-left: 260px;
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.content h1 {
+    font-size: 2em; /* 标题字体大小 */
+    margin-bottom: 20px; 
+    color: #161616; /* 标题颜色 */
+    text-align: left; /* 标题居中对齐 */
+}
+
+
+#account {
+    background-color: #ffffffb9; /* 背景色 */
+    border-radius: 12px; /* 圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    padding: 20px; /* 内边距 */
+    max-width: 100%; /* 最大宽度 */
+    margin: 20px auto; /* 上下边距和水平居中 */
+}
+
+
+#account .avatar {
+    border-radius: 50%; /* 圆形头像 */
+    width: 120px; /* 头像宽度 */
+    height: 120px; /* 头像高度 */
+    margin-right: 20px; /* 头像与信息内容的间距 */
+}
+
+#account .info {
+    flex: 1; /* 使信息区域填满剩余空间 */
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 创建两列，每列宽度相等 */
+    grid-gap: 10px; /* 列之间添加间隔 */
+}
+
+#account p {
+    margin: 0;
+    font-size: 1.5em;
+    margin-bottom: 10px; /* 段落与其他内容的间距 */
+    color: #555; /* 段落颜色 */
+    line-height: 1.5; /* 行高 */
+}
+
+#account span {
+    font-size: 1.2em;
+    color: #000; /* 信息文本颜色 */
+}
+
+
+#privacy {
+    background-color: #ffffffb9; /* 背景色 */
+    border-radius: 12px; /* 圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    padding: 20px; /* 内边距 */
+    max-width: 100%; /* 最大宽度 */
+    margin: 20px auto; /* 上下边距和水平居中 */
+}
+
+
+
+#notice {
+    background-color: #ffffffb9; /* 背景色 */
+    border-radius: 12px; /* 圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    padding: 20px; /* 内边距 */
+    max-width: 100%; /* 最大宽度 */
+    margin: 20px auto; /* 上下边距和水平居中 */
+}
+
+#device-info-table, #headers-table, #javascript-table, #fingerprint-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+table th {
+    background-color: #f2f2f2;
+}
+
+#device {
+    background-color: #ffffffb9; /* 背景色 */
+    border-radius: 12px; /* 圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    padding: 20px; /* 内边距 */
+    max-width: 100%; /* 最大宽度 */
+    margin: 20px auto; /* 上下边距和水平居中 */
+}
+
+#diy-info {
+    background-color: #ffffffb9; /* 背景色 */
+    border-radius: 12px; /* 圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    padding: 20px; /* 内边距 */
+    max-width: 100%; /* 最大宽度 */
+    margin: 20px auto; /* 上下边距和水平居中 */
+}

@@ -1,0 +1,830 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap");
+*, *::before, *::after {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+} */
+
+@font-face {
+  font-family: 'PingFang'; /* 自定义字体名 */
+  src: url('/font/PingFangSC-Regular.woff2') format('truetype'); /* 更新为在线URL及正确的格式 */
+  font-weight: normal;
+  font-style: normal;
+}
+
+body, html {
+  font-family: 'PingFang'; /* 将页面字体设置为 'PingFang' */
+}
+
+body {
+  font-family: "PingFang";
+  /* background-color: #000; */
+  color: #fff;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  perspective: 800px;
+  overflow: hidden;
+}
+body * {
+  transform-style: preserve-3d;
+}
+
+.scene {
+  position: relative;
+  -webkit-animation: scene 45s infinite linear;
+          animation: scene 45s infinite linear;
+}
+@-webkit-keyframes scene {
+  from {
+    transform: rotate(0deg) rotateX(15deg) rotate(360deg);
+  }
+  to {
+    transform: rotate(360deg) rotateX(15deg) rotate(0deg);
+  }
+}
+@keyframes scene {
+  from {
+    transform: rotate(0deg) rotateX(15deg) rotate(360deg);
+  }
+  to {
+    transform: rotate(360deg) rotateX(15deg) rotate(0deg);
+  }
+}
+
+.ribbon {
+  position: absolute;
+}
+.ribbon i {
+  position: absolute;
+  inset: -1.5em -0.5em;
+  overflow: hidden;
+  transform: translate(var(--tx, 0), var(--ty, 0)) rotateY(var(--ry, 0deg)) translateZ(calc(0.5em / tan(4.5deg))) skewY(5deg) scalex(1.02);
+  --bgColor: hsl(200 100% var(--fadeLight));
+  --color: hsl(200 100% calc(var(--fadeLight) * 1.5));
+}
+.ribbon i:nth-child(1) {
+  --left: 0.5em;
+  --ty: 5em;
+  --tx: 20em;
+  --fadeLight: 4%;
+}
+.ribbon i:nth-child(2) {
+  --left: 1em;
+  --ty: 4.9166666667em;
+  --tx: 19em;
+  --fadeLight: 8%;
+}
+.ribbon i:nth-child(3) {
+  --left: 1.5em;
+  --ty: 4.8333333333em;
+  --tx: 18em;
+  --fadeLight: 12%;
+}
+.ribbon i:nth-child(4) {
+  --left: 2em;
+  --ty: 4.75em;
+  --tx: 17em;
+  --fadeLight: 16%;
+}
+.ribbon i:nth-child(5) {
+  --left: 2.5em;
+  --ty: 4.6666666667em;
+  --tx: 16em;
+  --fadeLight: 20%;
+}
+.ribbon i:nth-child(6) {
+  --left: 3em;
+  --ty: 4.5833333333em;
+  --tx: 15em;
+  --fadeLight: 24%;
+}
+.ribbon i:nth-child(7) {
+  --left: 3.5em;
+  --ty: 4.5em;
+  --tx: 14em;
+  --fadeLight: 28%;
+}
+.ribbon i:nth-child(8) {
+  --left: 4em;
+  --ty: 4.4166666667em;
+  --tx: 13em;
+  --fadeLight: 32%;
+}
+.ribbon i:nth-child(9) {
+  --left: 4.5em;
+  --ty: 4.3333333333em;
+  --tx: 12em;
+  --fadeLight: 36%;
+}
+.ribbon i:nth-child(10) {
+  --left: 5em;
+  --ty: 4.25em;
+  --tx: 11em;
+  --fadeLight: 40%;
+}
+.ribbon i:nth-child(11) {
+  --left: 5.5em;
+  --ty: 4.1666666667em;
+  --tx: 10em;
+  --fadeLight: 44%;
+}
+.ribbon i:nth-child(12) {
+  --left: 6em;
+  --ty: 4.0833333333em;
+  --tx: 9em;
+  --fadeLight: 48%;
+}
+.ribbon i:nth-child(13) {
+  --left: 6.5em;
+  --ty: 4em;
+  --tx: 8em;
+  --fadeLight: 52%;
+}
+.ribbon i:nth-child(14) {
+  --left: 7em;
+  --ty: 3.9166666667em;
+  --tx: 7em;
+  --fadeLight: 56%;
+}
+.ribbon i:nth-child(15) {
+  --left: 7.5em;
+  --ty: 3.8333333333em;
+  --tx: 6em;
+  --fadeLight: 60%;
+}
+.ribbon i:nth-child(16) {
+  --left: 8em;
+  --ty: 3.75em;
+  --tx: 5em;
+  --fadeLight: 64%;
+}
+.ribbon i:nth-child(17) {
+  --left: 8.5em;
+  --ty: 3.6666666667em;
+  --tx: 4em;
+  --fadeLight: 68%;
+}
+.ribbon i:nth-child(18) {
+  --left: 9em;
+  --ty: 3.5833333333em;
+  --tx: 3em;
+  --fadeLight: 72%;
+}
+.ribbon i:nth-child(19) {
+  --left: 9.5em;
+  --ty: 3.5em;
+  --tx: 2em;
+  --fadeLight: 76%;
+}
+.ribbon i:nth-child(20) {
+  --left: 10em;
+  --ty: 3.4166666667em;
+  --tx: 1em;
+  --fadeLight: 80%;
+}
+.ribbon i:nth-child(21) {
+  --left: 10.5em;
+  --ty: 3.3333333333em;
+  --ry: 0deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(22) {
+  --left: 11em;
+  --ty: 3.25em;
+  --ry: -9deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(23) {
+  --left: 11.5em;
+  --ty: 3.1666666667em;
+  --ry: -18deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(24) {
+  --left: 12em;
+  --ty: 3.0833333333em;
+  --ry: -27deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(25) {
+  --left: 12.5em;
+  --ty: 3em;
+  --ry: -36deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(26) {
+  --left: 13em;
+  --ty: 2.9166666667em;
+  --ry: -45deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(27) {
+  --left: 13.5em;
+  --ty: 2.8333333333em;
+  --ry: -54deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(28) {
+  --left: 14em;
+  --ty: 2.75em;
+  --ry: -63deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(29) {
+  --left: 14.5em;
+  --ty: 2.6666666667em;
+  --ry: -72deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(30) {
+  --left: 15em;
+  --ty: 2.5833333333em;
+  --ry: -81deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(31) {
+  --left: 15.5em;
+  --ty: 2.5em;
+  --ry: -90deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(32) {
+  --left: 16em;
+  --ty: 2.4166666667em;
+  --ry: -99deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(33) {
+  --left: 16.5em;
+  --ty: 2.3333333333em;
+  --ry: -108deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(34) {
+  --left: 17em;
+  --ty: 2.25em;
+  --ry: -117deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(35) {
+  --left: 17.5em;
+  --ty: 2.1666666667em;
+  --ry: -126deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(36) {
+  --left: 18em;
+  --ty: 2.0833333333em;
+  --ry: -135deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(37) {
+  --left: 18.5em;
+  --ty: 2em;
+  --ry: -144deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(38) {
+  --left: 19em;
+  --ty: 1.9166666667em;
+  --ry: -153deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(39) {
+  --left: 19.5em;
+  --ty: 1.8333333333em;
+  --ry: -162deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(40) {
+  --left: 20em;
+  --ty: 1.75em;
+  --ry: -171deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(41) {
+  --left: 20.5em;
+  --ty: 1.6666666667em;
+  --ry: -180deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(42) {
+  --left: 21em;
+  --ty: 1.5833333333em;
+  --ry: -189deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(43) {
+  --left: 21.5em;
+  --ty: 1.5em;
+  --ry: -198deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(44) {
+  --left: 22em;
+  --ty: 1.4166666667em;
+  --ry: -207deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(45) {
+  --left: 22.5em;
+  --ty: 1.3333333333em;
+  --ry: -216deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(46) {
+  --left: 23em;
+  --ty: 1.25em;
+  --ry: -225deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(47) {
+  --left: 23.5em;
+  --ty: 1.1666666667em;
+  --ry: -234deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(48) {
+  --left: 24em;
+  --ty: 1.0833333333em;
+  --ry: -243deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(49) {
+  --left: 24.5em;
+  --ty: 1em;
+  --ry: -252deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(50) {
+  --left: 25em;
+  --ty: 0.9166666667em;
+  --ry: -261deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(51) {
+  --left: 25.5em;
+  --ty: 0.8333333333em;
+  --ry: -270deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(52) {
+  --left: 26em;
+  --ty: 0.75em;
+  --ry: -279deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(53) {
+  --left: 26.5em;
+  --ty: 0.6666666667em;
+  --ry: -288deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(54) {
+  --left: 27em;
+  --ty: 0.5833333333em;
+  --ry: -297deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(55) {
+  --left: 27.5em;
+  --ty: 0.5em;
+  --ry: -306deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(56) {
+  --left: 28em;
+  --ty: 0.4166666667em;
+  --ry: -315deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(57) {
+  --left: 28.5em;
+  --ty: 0.3333333333em;
+  --ry: -324deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(58) {
+  --left: 29em;
+  --ty: 0.25em;
+  --ry: -333deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(59) {
+  --left: 29.5em;
+  --ty: 0.1666666667em;
+  --ry: -342deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(60) {
+  --left: 30em;
+  --ty: 0.0833333333em;
+  --ry: -351deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(61) {
+  --left: 30.5em;
+  --ty: 0em;
+  --ry: -360deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(62) {
+  --left: 31em;
+  --ty: -0.0833333333em;
+  --ry: -369deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(63) {
+  --left: 31.5em;
+  --ty: -0.1666666667em;
+  --ry: -378deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(64) {
+  --left: 32em;
+  --ty: -0.25em;
+  --ry: -387deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(65) {
+  --left: 32.5em;
+  --ty: -0.3333333333em;
+  --ry: -396deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(66) {
+  --left: 33em;
+  --ty: -0.4166666667em;
+  --ry: -405deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(67) {
+  --left: 33.5em;
+  --ty: -0.5em;
+  --ry: -414deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(68) {
+  --left: 34em;
+  --ty: -0.5833333333em;
+  --ry: -423deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(69) {
+  --left: 34.5em;
+  --ty: -0.6666666667em;
+  --ry: -432deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(70) {
+  --left: 35em;
+  --ty: -0.75em;
+  --ry: -441deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(71) {
+  --left: 35.5em;
+  --ty: -0.8333333333em;
+  --ry: -450deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(72) {
+  --left: 36em;
+  --ty: -0.9166666667em;
+  --ry: -459deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(73) {
+  --left: 36.5em;
+  --ty: -1em;
+  --ry: -468deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(74) {
+  --left: 37em;
+  --ty: -1.0833333333em;
+  --ry: -477deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(75) {
+  --left: 37.5em;
+  --ty: -1.1666666667em;
+  --ry: -486deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(76) {
+  --left: 38em;
+  --ty: -1.25em;
+  --ry: -495deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(77) {
+  --left: 38.5em;
+  --ty: -1.3333333333em;
+  --ry: -504deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(78) {
+  --left: 39em;
+  --ty: -1.4166666667em;
+  --ry: -513deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(79) {
+  --left: 39.5em;
+  --ty: -1.5em;
+  --ry: -522deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(80) {
+  --left: 40em;
+  --ty: -1.5833333333em;
+  --ry: -531deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(81) {
+  --left: 40.5em;
+  --ty: -1.6666666667em;
+  --ry: -540deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(82) {
+  --left: 41em;
+  --ty: -1.75em;
+  --ry: -549deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(83) {
+  --left: 41.5em;
+  --ty: -1.8333333333em;
+  --ry: -558deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(84) {
+  --left: 42em;
+  --ty: -1.9166666667em;
+  --ry: -567deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(85) {
+  --left: 42.5em;
+  --ty: -2em;
+  --ry: -576deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(86) {
+  --left: 43em;
+  --ty: -2.0833333333em;
+  --ry: -585deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(87) {
+  --left: 43.5em;
+  --ty: -2.1666666667em;
+  --ry: -594deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(88) {
+  --left: 44em;
+  --ty: -2.25em;
+  --ry: -603deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(89) {
+  --left: 44.5em;
+  --ty: -2.3333333333em;
+  --ry: -612deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(90) {
+  --left: 45em;
+  --ty: -2.4166666667em;
+  --ry: -621deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(91) {
+  --left: 45.5em;
+  --ty: -2.5em;
+  --ry: -630deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(92) {
+  --left: 46em;
+  --ty: -2.5833333333em;
+  --ry: -639deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(93) {
+  --left: 46.5em;
+  --ty: -2.6666666667em;
+  --ry: -648deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(94) {
+  --left: 47em;
+  --ty: -2.75em;
+  --ry: -657deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(95) {
+  --left: 47.5em;
+  --ty: -2.8333333333em;
+  --ry: -666deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(96) {
+  --left: 48em;
+  --ty: -2.9166666667em;
+  --ry: -675deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(97) {
+  --left: 48.5em;
+  --ty: -3em;
+  --ry: -684deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(98) {
+  --left: 49em;
+  --ty: -3.0833333333em;
+  --ry: -693deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(99) {
+  --left: 49.5em;
+  --ty: -3.1666666667em;
+  --ry: -702deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(100) {
+  --left: 50em;
+  --ty: -3.25em;
+  --ry: -711deg;
+  --fadeLight: calc((sin(var(--ry) + 90deg) + 1) * 30% + 20%);
+}
+.ribbon i:nth-child(101) {
+  --left: 50.5em;
+  --ty: -3.3333333333em;
+  --tx: 0em;
+  --fadeLight: 76%;
+}
+.ribbon i:nth-child(102) {
+  --left: 51em;
+  --ty: -3.4166666667em;
+  --tx: -1em;
+  --fadeLight: 72%;
+}
+.ribbon i:nth-child(103) {
+  --left: 51.5em;
+  --ty: -3.5em;
+  --tx: -2em;
+  --fadeLight: 68%;
+}
+.ribbon i:nth-child(104) {
+  --left: 52em;
+  --ty: -3.5833333333em;
+  --tx: -3em;
+  --fadeLight: 64%;
+}
+.ribbon i:nth-child(105) {
+  --left: 52.5em;
+  --ty: -3.6666666667em;
+  --tx: -4em;
+  --fadeLight: 60%;
+}
+.ribbon i:nth-child(106) {
+  --left: 53em;
+  --ty: -3.75em;
+  --tx: -5em;
+  --fadeLight: 56%;
+}
+.ribbon i:nth-child(107) {
+  --left: 53.5em;
+  --ty: -3.8333333333em;
+  --tx: -6em;
+  --fadeLight: 52%;
+}
+.ribbon i:nth-child(108) {
+  --left: 54em;
+  --ty: -3.9166666667em;
+  --tx: -7em;
+  --fadeLight: 48%;
+}
+.ribbon i:nth-child(109) {
+  --left: 54.5em;
+  --ty: -4em;
+  --tx: -8em;
+  --fadeLight: 44%;
+}
+.ribbon i:nth-child(110) {
+  --left: 55em;
+  --ty: -4.0833333333em;
+  --tx: -9em;
+  --fadeLight: 40%;
+}
+.ribbon i:nth-child(111) {
+  --left: 55.5em;
+  --ty: -4.1666666667em;
+  --tx: -10em;
+  --fadeLight: 36%;
+}
+.ribbon i:nth-child(112) {
+  --left: 56em;
+  --ty: -4.25em;
+  --tx: -11em;
+  --fadeLight: 32%;
+}
+.ribbon i:nth-child(113) {
+  --left: 56.5em;
+  --ty: -4.3333333333em;
+  --tx: -12em;
+  --fadeLight: 28%;
+}
+.ribbon i:nth-child(114) {
+  --left: 57em;
+  --ty: -4.4166666667em;
+  --tx: -13em;
+  --fadeLight: 24%;
+}
+.ribbon i:nth-child(115) {
+  --left: 57.5em;
+  --ty: -4.5em;
+  --tx: -14em;
+  --fadeLight: 20%;
+}
+.ribbon i:nth-child(116) {
+  --left: 58em;
+  --ty: -4.5833333333em;
+  --tx: -15em;
+  --fadeLight: 16%;
+}
+.ribbon i:nth-child(117) {
+  --left: 58.5em;
+  --ty: -4.6666666667em;
+  --tx: -16em;
+  --fadeLight: 12%;
+}
+.ribbon i:nth-child(118) {
+  --left: 59em;
+  --ty: -4.75em;
+  --tx: -17em;
+  --fadeLight: 8%;
+}
+.ribbon i:nth-child(119) {
+  --left: 59.5em;
+  --ty: -4.8333333333em;
+  --tx: -18em;
+  --fadeLight: 4%;
+}
+.ribbon i:nth-child(120) {
+  --left: 60em;
+  --ty: -4.9166666667em;
+  --tx: -19em;
+  --fadeLight: 0%;
+}
+.ribbon i::after {
+  content: "Welcome to ZYHORG & Oolong !";
+  position: absolute;
+  display: grid;
+  place-items: center;
+  top: 50%;
+  left: var(--left);
+  width: 36em;
+  height: 100%;
+  color: var(--color);
+  font-size: 2em;
+  background-image: linear-gradient(-60deg, transparent 1em, var(--bgColor) 0 31em, transparent 0), linear-gradient(60deg, transparent 1em, var(--bgColor) 0 31em, transparent 0);
+  font-style: normal;
+  text-shadow: 0 0 0.1em #0007;
+  -webkit-animation: text 16s infinite ease-in-out;
+          animation: text 16s infinite ease-in-out;
+}
+@-webkit-keyframes text {
+  0% {
+    translate: 0em -50%;
+  }
+  45% {
+    translate: -49.5em -50%;
+  }
+  55% {
+    translate: -47em -50%;
+  }
+  100% {
+    translate: -96.5em -50%;
+  }
+}
+@keyframes text {
+  0% {
+    translate: 0em -50%;
+  }
+  45% {
+    translate: -49.5em -50%;
+  }
+  55% {
+    translate: -47em -50%;
+  }
+  100% {
+    translate: -96.5em -50%;
+  }
+}

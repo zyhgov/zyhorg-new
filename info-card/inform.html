@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>通知页面</title>
+    <style>
+        .notification-box {
+            width: 90%;
+            height: auto;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            font-family: 'PingFang SC';
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+            background: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+            backdrop-filter: blur(10px); /* 背景模糊 */
+        }
+        .notification-content {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+            flex-grow: 1;
+        }
+        .title {
+            text-align: left;
+            font-size: 1.5em; /* 调整字体大小 */
+            font-weight: bold;
+            margin: 0;
+        }
+        .content {
+            text-align: left; /* 左对齐文本 */
+            font-size: 1em;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+            width: 15%;
+            margin-left: 80%;
+            font-size: 1em;
+            text-align: center;
+        }
+        #Help {
+            background: linear-gradient(135deg, rgba(0, 112, 224, 0.8), rgba(0, 112, 224, 0.5));
+        }
+        #Help .button {
+            background: #0070e0;
+        }
+        #Help .button:hover {
+            background: #005bb5;
+        }
+        #Success {
+            background: linear-gradient(135deg, rgba(3, 166, 90, 0.8), rgba(3, 166, 90, 0.5));
+        }
+        #Success .button {
+            background: #03a65a;
+        }
+        #Success .button:hover {
+            background: #028a47;
+        }
+        #Warning {
+            background: linear-gradient(135deg, rgba(252, 134, 33, 0.8), rgba(252, 134, 33, 0.5));
+        }
+        #Warning .button {
+            background: #fc8621;
+        }
+        #Warning .button:hover {
+            background: #e7741b;
+        }
+        #Error {
+            background: linear-gradient(135deg, rgba(219, 48, 86, 0.8), rgba(219, 48, 86, 0.5));
+        }
+        #Error .button {
+            background: #db3056;
+        }
+        #Error .button:hover {
+            background: #c12849;
+        }
+        .svg{
+            z-index: 10000;
+        }
+    </style>
+</head>
+<body>
+    <div id="Help" class="notification-box">
+        <img src="help.svg" alt="help" width="100px" class="svg">
+        <div class="notification-content">
+            <p class="title">Help 帮助</p>
+            <p class="content">这是帮助通知。</p>
+            <button class="button">点击这里</button>
+        </div>
+    </div>
+    <div id="Success" class="notification-box">
+        <img src="success.svg" alt="success" width="100px" class="svg">
+        <div class="notification-content">
+            <p class="title">Success 成功</p>
+            <p class="content">这是成功通知。</p>
+            <button class="button">点击这里</button>
+        </div>
+    </div>
+    <div id="Warning" class="notification-box">
+        <img src="warning.svg" alt="warning" width="100px" class="svg">
+        <div class="notification-content">
+            <p class="title">Warning 警告</p>
+            <p class="content">这是警告通知。</p>
+            <button class="button">点击这里</button>
+        </div>
+    </div>
+    <div id="Error" class="notification-box">
+        <img src="error.svg" alt="error" width="100px" class="svg">
+        <div class="notification-content">
+            <p class="title">Error 错误</p>
+            <p class="content">这是错误通知。</p>
+            <button class="button">点击这里</button>
+        </div>
+    </div>
+</body>
+</html>
