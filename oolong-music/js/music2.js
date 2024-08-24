@@ -1,5 +1,5 @@
-const musicDataPath = "http://127.0.0.1:5500/oolong-music/music.json";
-// const musicDataPath = "";
+// const musicDataPath = "http://127.0.0.1:5500/oolong-music/music.json";
+const musicDataPath = "https://zyhorg.cn/oolong-music/music.json";
 let musicData = [];
 let playlistOrder = []; // Store the order of songs in the playlist
 let currentIndex = 0;
