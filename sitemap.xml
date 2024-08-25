@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- 主页 -->
   <url>
-    <loc>https://zyhgov.gitee.io/zyh/ZhangYongHao/index.html</loc>
-    <changefreq>daily</changefreq>
+    <loc>https://zyhorg.cn/</loc>
+    <lastmod>2024-08-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- 新闻页面 -->
   <url>
-    <loc>https://zyhgov.gitee.io/zyh/ZhangYongHao/news/应用收录/JetBrains.html</loc>
-    <lastmod>2024-02-19</lastmod>
-    <changefreq>daily</changefreq>
+    <loc>https://zyhorg.cn/old-index.html</loc>
+    <lastmod>2024-08-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://zyhorg.cn/new-func/oolong_func.html</loc>
+    <lastmod>2024-08-25</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
-    <loc>https://zyhgov.gitee.io/zyh/ZhangYongHao/news/作业收录检索/2024dsjjsfxyy.html</loc>
-    <lastmod>2024-02-19</lastmod>
+    <loc>https://zyhorg.cn/ConcentratedNews/container.html</loc>
+    <lastmod>2024-08-25</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://zyhorg.cn/oolong-music/musicplay.html</loc>
+    <lastmod>2024-08-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <url>
-    <loc>https://zyhgov.gitee.io/zyh/ZhangYongHao/news/作业收录检索/2024pyqljkjkf.html</loc>
-    <lastmod>2024-02-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-
 </urlset>
