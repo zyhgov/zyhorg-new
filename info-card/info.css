@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: 'PingFang'; /* 自定义字体名 */
-    src: url('/font/PingFangSC-Semibold.woff2') format('woff2'); /* 更新为在线URL及正确的格式 */
+    src: url('../statics/font/PingFang.ttf') format('woff2'); /* 更新为在线URL及正确的格式 */
     font-weight: normal;
     font-style: normal;
   }
