@@ -1,0 +1,99 @@
+.tit{
+    margin-top: 8%;
+    margin-left: 15%;
+}
+.tit p{
+    letter-spacing:2px;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+span{
+    font-size: 1em;
+    font-weight: bold;
+    color: #007bff;
+}
+.card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.card-image {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+.card-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.card-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+.card-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 100px;
+    margin-left: auto;
+}
+/* 分页样式 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+.page-item {
+    margin: 0 5px;
+    list-style-type:none;
+}
+
+.page-link {
+    padding: 7px 12px;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-link:hover:not(.disabled),
+.page-link:focus:not(.disabled) {
+    background-color: #e0e0e0;
+    border-color: #bbb;
+}
+
+.page-link.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.page-link.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
