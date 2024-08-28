@@ -1,7 +1,8 @@
 const cards = [
     // 这里是你的卡片数据数组
     // 例如：
-    { id: 3, title: '杖雍皓 20240828 版简历存档', subtitle: '此用于存放简历文件以便于任何地方下载与预览。', imgSrc: '/statics/image/logo/zyh-logo.png' },
+    { id: 4, title: '杖雍皓 20240828 版简历存档', subtitle: '此用于存放简历文件以便于任何地方下载与预览。', imgSrc: '/statics/image/logo/zyh-logo.png' },
+    { id: 3, title: '2024第6次网站停摆恢复说明', subtitle: '技术安全支持与更新。', imgSrc: '/statics/image/logo/zyh-logo.png' },
     { id: 2, title: '网站制作管理委员会开通1周年', subtitle: '去年的8月6日，杖雍皓zyhgov创建了网站制作管理委员会', imgSrc: '/statics/image/logo/zyh-logo.png' },
     { id: 1, title: '新版网站上线', subtitle: '由于现实需要，我们 ( 杖雍皓 | 乌龙茶不乌龙 ) 现在全面更新了网站系统，同时保留旧版网站正常访问资源。', imgSrc: '/statics/image/logo/wlcbwl-oolong-lanlv.png' },
 
