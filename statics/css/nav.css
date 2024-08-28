@@ -1,11 +1,10 @@
 @font-face {
 	font-family: 'PingFang';
-/* 	src: url('../../PingFangSC-main/woff2/PingFangSC-Medium.woff2') format('truetype'); */
+	/* src: url('../../PingFangSC-main/woff2/PingFangSC-Medium.woff2') format('truetype'); */
 	src: url('../font/PingFang.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
   }
-
 
 
   body, html {
@@ -36,13 +35,16 @@
     display: flex;
     justify-content: center;
     padding: 10px 30px;
-    background-color: #FBFBFD;
+    /* background-color: #FBFBFD; */
+    background-color: #181818;
+
     transition: background-color 0.3s, backdrop-filter 0.3s;
     z-index: 1000; /* 确保导航栏始终在最顶层 */
 }
 
 .navbar.scrolled {
-    background-color: rgba(251, 251, 253, 0.8);
+    /* background-color: rgba(251, 251, 253, 0.8); */
+    background-color: rgba(22, 22, 23, .8);
     backdrop-filter: blur(10px);
 }
 
@@ -79,7 +81,8 @@
     margin-left: 20px;
     margin-right: 20px;
     text-decoration: none;
-    color: #1D1D1F;
+    /* color: #1D1D1F; */
+    color: #E8E8ED;
     font-size: 18px;
     transition: color 0.3s;
     display: block; /* 确保链接在小屏幕下能垂直排列 */
