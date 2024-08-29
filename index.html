@@ -43,10 +43,14 @@
     <link rel="icon" href="/favicon.ico" sizes="64x64" type="image/x-icon">
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="./PingFangSC-main/woff2/PingFangSC-woff2.css">
-    <link rel="stylesheet" href="./statics/css/nav.css">
-    <link rel="stylesheet" href="./statics/css/layout.css">
-    <link rel="stylesheet" href="./statics/css/footer.css">
+    <link rel="stylesheet" href="/PingFangSC-main/woff2/PingFangSC-woff2.css">
+    <link rel="stylesheet" href="/statics/css/nav.css">
+    <link rel="stylesheet" href="/statics/css/layout.css">
+    <link rel="stylesheet" href="/statics/css/footer.css">
+    <script src="/statics/js/nav.js"></script>
+    <script src="/statics/js/footer.js"></script>
+    <script src="/statics/js/axios.min.js"></script>
+    <script src="/CodeStudio/networkCheck.js"></script>
     <link rel="stylesheet" href="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/flag-icons-main/css/flag-icons.min.css">
     <script type="application/ld+json">
         {
@@ -57,8 +61,8 @@
         "logo": "https://zyhorg.cn/statics/image/logo/zyh-logo.png"
         }
     </script>
-    <script src='./script/nprogress.js'></script>
-    <link rel='stylesheet' href='./nprogress-new.css'/>   
+    <script src='/script/nprogress.js'></script>
+    <link rel='stylesheet' href='/style/nprogress-new.css'/>   
     <!-- <script src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/statics/js/hls.js"></script> -->
     <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
     <script>LA.init({id:"KVvySTCicGZwHu92",ck:"KVvySTCicGZwHu92",autoTrack:true,hashMode:true,screenRecord:true})</script>
@@ -397,10 +401,6 @@
 
 
 
-    <script src="./statics/js/nav.js"></script>
-    <script src="./statics/js/footer.js"></script>
-    <script src="./statics/js/axios.min.js"></script>
-    <script src="./CodeStudio/networkCheck.js"></script>
     <script>
         NProgress.start(); // 在页面加载开始时启动进度条
     
@@ -409,15 +409,15 @@
             NProgress.done(); // 所有资源加载完毕后关闭进度条
             $('.fade').removeClass('out'); // 移除任何可能影响显示的类
         };
-        function showErrorMessage() {
-    alert('由于杖雍皓误操作导致源代码丢失，服务现不可用！错误代码 01-08-2564, 我们需要帮助！如果您能熟练使用git操作，请与我们联系【mail : info@zyhorg.cn】,感谢！');
-        }
+    //     function showErrorMessage() {
+    // alert('由于杖雍皓误操作导致源代码丢失，服务现不可用！错误代码 01-08-2564, 我们需要帮助！如果您能熟练使用git操作，请与我们联系【mail : info@zyhorg.cn】,感谢！');
+    //     }
 
-        var forgetLink = document.getElementById('err');
-        forgetLink.addEventListener('click', showErrorMessage);
+    //     var forgetLink = document.getElementById('err');
+    //     forgetLink.addEventListener('click', showErrorMessage);
 
-        var forgetLink2 = document.getElementById('err2');
-        forgetLink2.addEventListener('click', showErrorMessage);
+    //     var forgetLink2 = document.getElementById('err2');
+    //     forgetLink2.addEventListener('click', showErrorMessage);
     </script>
 <!-- <script src="./bing-webmaster.js"></script> -->
 </body>
