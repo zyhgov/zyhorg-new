@@ -1,0 +1,1 @@
+/* Original design by Sebastian Petravic -> https://dribbble.com/shots/3700168-Scotch-VHS */
