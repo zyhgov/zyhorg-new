@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>基于Hadoop平台的就业趋势预测 | 杖雍皓论文编校课题组 | zyhorg</title>
-    <style>
+    <!-- <style>
         @font-face {
         font-family: 'PingFang';
         src: url('/statics/font/PingFang.woff2') format('truetype');
@@ -17,11 +17,15 @@
         font-family: 'PingFang';
         box-sizing: border-box;
     }
-    </style>
+    </style> -->
     <script src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/paper/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/paper/styles.css">
+    <!-- <link rel="stylesheet" href="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/paper/styles.css"> -->
+    <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/paper/yangshi.css">
-    
+    <link rel="stylesheet" href="./prism.min.css">
+    <!-- 引入Prism.js支持行号的CSS -->
+    <link rel="stylesheet" href="./prism-line-numbers.min.css">
+
 </head>
 <body>
     <div class="wrapper">
@@ -42,7 +46,7 @@
         <h1 class="topTitle">基于Hadoop平台的就业趋势预测</h1>
         <p class="topTime">
             在襄职3年的Hadoop平台搭建与Python学习经验而作。<br>
-            指导老师 : 史润&nbsp;&nbsp;&nbsp;&nbsp;作者 : 张永豪 (杖雍皓)
+            指导老师 : 史润&nbsp;&nbsp;作者 : 张永豪 (杖雍皓)&nbsp;&nbsp;技术帮助 : 叶长忍
         </p>
         <!-- <p>这里是网站的主要内容...</p> -->
     </div>
@@ -129,6 +133,7 @@
                 <img src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/paper/wisdom.svg" alt="wisdom" class="wisdom">
                 <a href="#theme-review" class="anchor-link">论文主题审核</a>
                 <a href="#preparation-stage" class="anchor-link">论文准备阶段</a>
+                <a href="#data-all" class="anchor-link">论文数据集中收集阶段</a>
             </nav>
         </div>
         <div class="box">
@@ -159,6 +164,91 @@
                 然后再使用python来从预处理后的数据中提取有助于预测的关键特征，比如行业增长率、技能需求变化、地域影响因素等，再进行模型构建，采用适合时间序列分析和预测的机器学习，建立就业趋势预测模型，最后对模型评估与优化，通过保留的数据集对模型进行测试，评估其预测准确性，并根据反馈结果调整模型参数。
             </p>
 
+            <p id="data-all" class="h1-wen">论文数据集中收集阶段</p>
+            <p class="h2-wen">政府数据、招聘网站数据爬取</p>
+            <p class="xie_hui">此处特别致谢叶长忍技术帮助。</p>
+            <p class="wen">
+              下面这段代码是一个使用Python的Scrapy框架编写的爬虫，
+              用于从中国人力资源和社会保障部网站上抓取特定的PDF公开数据文件，
+              并保存到本地目录作为数据支撑来用。
+              通过下载
+              <a href="./data/output.rar" class="A" target="_blank">人社部统计公报.RAR</a>
+              来了解我的论文数据集。
+            </p>
+<div id="code-block-container">
+<pre><code class="language-python line-numbers"># 使用Python Scrapy 框架进行爬取中国人社部公开数据作为数据支撑
+import scrapy
+from scrapy import Request
+import os
+import time
+
+
+class MohrssSpider(scrapy.Spider):
+    name = "mohrss"
+    allowed_domains = ["www.mohrss.gov.cn"]
+    start_urls = [
+        "https://www.mohrss.gov.cn/SYrlzyhshbzb/zwgk/szrs/tjsj/"
+    ]
+
+    # 初始化一个计数器用于生成唯一的文件名
+    pdf_counter = 0
+
+    def parse(self, response):
+        # 获取列表页的链接
+        list_pages = response.xpath('//a[@title[contains(.,"人力资源和社会保障主要统计数据")]]/@href').getall()
+
+        # 构造完整的URL路径并请求
+        base_url = "https://www.mohrss.gov.cn"
+        for list_page in list_pages:
+            full_list_page_url = response.urljoin(list_page)
+            yield Request(full_list_page_url, callback=self.parse_list_page)
+
+    def parse_list_page(self, response):
+        # 从列表页中获取详情页的链接
+        detail_pages = response.xpath('//div[@class="TRS_Editor"]/a/@href').getall()
+
+        # 构造完整的URL路径并请求
+        base_url = "https://www.mohrss.gov.cn"
+        for detail_page in detail_pages:
+            full_detail_page_url = response.urljoin(detail_page)
+            yield Request(full_detail_page_url, callback=self.save_pdf)
+
+
+
+    def save_pdf(self, response):
+        # 检查响应是否为PDF文件
+        content_type = response.headers.get(b'Content-Type', b'').decode('utf-8')
+        if 'application/pdf' in content_type:
+            # 定义保存路径
+            base_path = 'output/'
+            os.makedirs(base_path, exist_ok=True)  # 创建输出目录
+
+            # 使用计数器生成唯一的文件名
+            file_name = f"{int(time.time() * 1000)}_{self.pdf_counter}.pdf"
+            self.pdf_counter += 1  # 更新计数器
+
+            path = os.path.join(base_path, file_name)
+
+            with open(path, 'wb') as f:
+                f.write(response.body)
+            print(f"PDF 文件已保存至 {path}")
+        else:
+            print("响应不是有效的PDF文件")
+
+
+# 运行爬虫
+if __name__ == '__main__':
+    from scrapy.crawler import CrawlerProcess
+
+    process = CrawlerProcess({
+        'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)'
+    })
+
+    process.crawl(MohrssSpider)
+    process.start()</code></pre>
+</div>
+
+
             <div class="terminal-loader">
                 <div class="terminal-header">
                   <div class="terminal-title">Status</div>
@@ -172,7 +262,9 @@
               </div>
               
         </div>
+
     </div>
+
 
 
 
@@ -189,5 +281,27 @@
 
 </div>
     <script src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/paper/script.js"></script>
+
+        <!-- 引入Prism.js的JS -->
+        <script src="./prism.min.js"></script>
+        <!-- 引入Prism.js支持Python语法高亮的JS -->
+        <script src="./prism-python.min.js"></script>
+        <!-- 引入Prism.js支持行号的JS -->
+        <script src="./prism-line-numbers.min.js"></script>
+        <!-- 初始化行号 -->
+        <script>
+            Prism.plugins.lineNumbers.getLineElement = function (element, number) {
+                return element.parentElement.querySelector(`.line-highlight[data-line="${number + 1}"]`);
+            };
+            Prism.plugins.lineNumbers.on('line-numbers-complete', function (event, element) {
+                var lineNumberElements = element.querySelectorAll('.line-number');
+                for (var i = 0; i < lineNumberElements.length; i++) {
+                    lineNumberElements[i].textContent = i + 1;
+                }
+            });
+            Prism.highlightAll();
+        </script>
+
+
 </body>
 </html>
