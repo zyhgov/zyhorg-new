@@ -4,6 +4,12 @@
 	font-weight: normal;
 	font-style: normal;
   }
+@font-face {
+  font-family: 'JetBrainsMono-Bold';
+  src: url('/statics/font/JetBrainsMono-Bold.woff2') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 /* 设置文档中选中文本的样式 */
 ::selection {
     background: black; /* 设置选中区域的背景颜色为黑色 */
@@ -26,7 +32,7 @@
 .wrapper {
     margin: 0;
     padding: 0;
-    background-image: url('./data-globe-hero@3x.png'); /* 替换为你的背景图片路径 */
+    background-image: url('https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/paper/data-globe-hero@3x.png'); /* 替换为你的背景图片路径 */
     background-repeat: no-repeat; /* 不重复背景图片 */
     background-position: center; /* 背景图片居中 */
     background-size: cover;
@@ -184,7 +190,7 @@ button {
 
     .logo {
         /* 更换小屏幕下的logo图片 */
-        content: url("./杖雍皓论文编校课题组2.svg");
+        content: url("https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/paper/杖雍皓论文编校课题组2.svg");
         padding-left: 20px;
         max-height: 40px;
     }
@@ -325,6 +331,7 @@ A:hover {
     font-size: 2em;
     text-align: left;
     font-weight: bold;
+    margin-top: 12%;
 }
 .h2-wen{
     color: #1d1d1d;
@@ -543,4 +550,40 @@ footer.footer .footer-content {
 
 footer.footer p {
     margin: 5px 0;
+}
+
+
+
+#code-block-container {
+  max-width: 100%;
+  width: 100%;
+  padding: 0.2em;
+  border-radius: 25px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: #ffffff00;
+  text-align: left;
+  font-family: "JetBrainsMono-Bold";
+}
+/* Prism.js 自定义样式 */
+code[class*=language-],
+pre[class*=language-] {
+  color: #000;
+  background: 0 0;
+  text-shadow: 0 1px #fff;
+  font-family: "JetBrainsMono-Bold";
+  border-radius: 25px;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
 }
