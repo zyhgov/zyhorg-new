@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/paper/yangshi.css">
     <link rel="stylesheet" href="./prism.min.css">
     <!-- 引入Prism.js支持行号的CSS -->
-    <link rel="stylesheet" href="./prism-line-numbers.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/line-numbers/prism-line-numbers.min.css">
 
 </head>
 <body>
@@ -282,13 +282,13 @@ if __name__ == '__main__':
 </div>
     <script src="https://datawarehouse-7gl81i6ib89c2edd-1314221350.tcloudbaseapp.com/paper/script.js"></script>
 
-        <!-- 引入Prism.js的JS -->
-        <script src="./prism.min.js"></script>
-        <!-- 引入Prism.js支持Python语法高亮的JS -->
-        <script src="./prism-python.min.js"></script>
-        <!-- 引入Prism.js支持行号的JS -->
-        <script src="./prism-line-numbers.min.js"></script>
-        <!-- 初始化行号 -->
+    <!-- 引入Prism.js的JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <!-- 引入Prism.js支持Python语法高亮的JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-python.min.js"></script>
+    <!-- 引入Prism.js支持行号的JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <!-- 初始化行号 -->
         <script>
             Prism.plugins.lineNumbers.getLineElement = function (element, number) {
                 return element.parentElement.querySelector(`.line-highlight[data-line="${number + 1}"]`);
