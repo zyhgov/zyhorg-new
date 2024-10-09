@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'PingFang';
+  src: url('/statics/font/PingFang.ttf') format('truetype'),
+       url('/statics/font/PingFang.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+input[type=text] {
+  --w: 1ch;   /* control the width for each letter */
+  --g: .15em; /* the gap between letters */
+  --b: 2px;   /* the border thickness */
+  --n: 6;     /* the number of letters */
+  
+  --c: #888;
+  font-size: 70px;
+  line-height: 1.5;
+  letter-spacing: var(--w);
+  font-family: monospace;
+  width: calc(var(--n)*(1ch + var(--w)));
+  padding-left: calc((var(--w) - var(--g))/2);
+  clip-path: inset(0 calc(var(--w)/2) 0 0);
+  background:
+    repeating-linear-gradient(90deg,
+      var(--c) 0 var(--b),#0000 0 calc(1ch + var(--w) - var(--g) - var(--b)),
+      var(--c) 0 calc(1ch + var(--w) - var(--g)),#0000 0 2ch),
+    conic-gradient(at calc(100% - var(--g) - 1px) var(--b),#0000 75%,var(--c) 0) 
+     0 0/calc(1ch + var(--w)) calc(100% - var(--b));
+  border: none;
+  outline: 0;
+}
+
+input[type=text]:focus-visible {
+  --c:#000;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  font-family: "PingFang";
+}
+
+.b-t{
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.3em;
+}
