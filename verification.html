@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Page</title>
+    <link rel="stylesheet" href="verification.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Verification of zyhorg</h1>
+        <p>
+            如果你已经是我们的内部人员，且符合身份，<br>
+            <strong>输入6位 zyhorg 加密密钥</strong>。键入即可进入。
+        </p>
+        <div class="code-inputs">
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+            <input type="text" maxlength="1" />
+        </div>
+        <button id="submitBtn">验证</button>
+        <div>
+            <a href="/sorry/index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                Back
+            </a>
+        </div>
+        <div id="alertSuccess" class="alert alert-success">
+            您输入的加密代码正确，正在重定向中···
+        </div>
+        <div id="alertError" class="alert alert-error">
+            您输入的加密密钥不正确，重试或退出！
+        </div>
+    </div>
+
+    <script>
+        const inputs = document.querySelectorAll('.code-inputs input');
+        const submitBtn = document.getElementById('submitBtn');
+        const alertSuccess = document.getElementById('alertSuccess');
+        const alertError = document.getElementById('alertError');
+    
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value.length === 1 && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+    
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && index > 0 && input.value === '') {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+    
+        submitBtn.addEventListener('click', () => {
+            const code = Array.from(inputs).map(input => input.value).join('');
+            if (code === '040410') {
+                alertSuccess.style.display = 'block';
+                alertError.style.display = 'none';
+                setTimeout(() => {
+                    // Redirect to backdoor_index.html after a short delay
+                    window.location.href = 'backdoor_index.html';
+                }, 3000);
+            } else {
+                alertError.style.display = 'block';
+                alertSuccess.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
