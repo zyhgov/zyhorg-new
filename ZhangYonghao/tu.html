@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大数据技术能力展示</title>
+    <script src="https://cdn.staticfile.net/echarts/5.4.3/echarts.min.js"></script>
+    <style>
+        /* 基础样式 */
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #636e72;
+            --background-color: #ffffff;
+            --card-color: #ffffff;
+            --text-color: #2d3436;
+            --border-radius: 16px;
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+                Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .card {
+            width: 100%;
+            background-color: var(--card-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        .chart {
+            flex: 1;
+            min-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .card {
+                padding: 1rem;
+            }
+            h2 {
+                font-size: 1.1rem;
+            }
+        }
+        /* 自定义ECharts样式 */
+        .echarts {
+            background-color: transparent !important;
+        }
+        .echarts canvas {
+            border-radius: var(--border-radius) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>前端开发技能点</h2>
+            <div id="frontendChart" class="chart"></div>
+        </div>
+        <div class="card">
+            <h2>后端开发技能点</h2>
+            <div id="backendChart" class="chart"></div>
+        </div>
+        <div class="card">
+            <h2>数据库管理技能点</h2>
+            <div id="dbChart" class="chart"></div>
+        </div>
+        <div class="card">
+            <h2>云平台技能分布（圆环图）</h2>
+            <div id="cloudChart" class="chart"></div>
+        </div>
+    </div>
+    <script>
+        // 主题配色方案
+        const themeColors = ['#6c5ce7', '#636e72', '#ffffff'];
+        
+        // 基础配置
+        const baseOption = {
+            color: themeColors,
+            title: { show: false },
+            tooltip: {
+                backgroundColor: 'rgba(45, 52, 54, 0.9)',
+                borderColor: '#6c5ce7',
+                textStyle: {
+                    color: '#ffffff'
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#6c5ce7'
+                }
+            }
+        };
+
+        // 创建带 Logo 的 yAxis 配置
+        function createYAxis(data) {
+            const richConfig = {};
+            data.forEach(item => {
+                richConfig[item] = {
+                    backgroundColor: {
+                        image: `/ZhangYonghao/img/icon/${item}.svg`
+                    },
+                    width: 20,
+                    height: 20
+                };
+            });
+
+            return {
+                type: 'category',
+                data: data,
+                axisLabel: {
+                    rich: richConfig,
+                    formatter: function(value) {
+                        return `{${value}|}  ${value}`;
+                    },
+                    color: '#2d3436',
+                    margin: 20
+                }
+            };
+        }
+
+        // 前端技能横向柱状图
+        const frontendChart = echarts.init(document.getElementById('frontendChart'));
+        frontendChart.setOption({
+            ...baseOption,
+            xAxis: {
+                type: 'value',
+                max: 100,
+                interval: 20,
+                axisLabel: {
+                    color: '#2d3436'
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: 'rgba(108, 92, 231, 0.1)'
+                    }
+                }
+            },
+            yAxis: createYAxis(['Tailwind', 'Vue3', 'JavaScript', 'CSS3', 'HTML5']),
+            series: [{
+                name: '技能值',
+                type: 'bar',
+                data: [88, 90, 85, 92, 95],
+                itemStyle: {
+                    color: '#6c5ce7',
+                    borderRadius: [0, 4, 4, 0]
+                },
+                label: {
+                    show: true,
+                    position: 'right',
+                    offset: [5, 0],
+                    color: '#2d3436'
+                },
+                emphasis: {
+                    itemStyle: {
+                        color: '#2d3436'
+                    }
+                },
+                itemStyle: {
+                    borderRadius: 5,
+                    borderColor: '#2d3436',
+                    borderWidth: 2
+                },
+            }],
+            grid: {
+                right: 100
+            }
+        });
+
+        // 后端技能横向柱状图
+        const backendChart = echarts.init(document.getElementById('backendChart'));
+        backendChart.setOption({
+            ...baseOption,
+            xAxis: {
+                type: 'value',
+                max: 95,
+                interval: 20,
+                axisLabel: {
+                    color: '#2d3436'
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: 'rgba(108, 92, 231, 0.1)'
+                    }
+                }
+            },
+            yAxis: createYAxis(['Python', 'Nodejs', 'Docker', 'Flask', 'Django']),
+            series: [{
+                name: '技能值',
+                type: 'bar',
+                data: [88, 90, 85, 82, 80],
+                itemStyle: {
+                    color: '#6c5ce7',
+                    borderRadius: [0, 4, 4, 0]
+                },
+                label: {
+                    show: true,
+                    position: 'right',
+                    offset: [5, 0],
+                    color: '#2d3436'
+                },
+                emphasis: {
+                    itemStyle: {
+                        color: '#2d3436'
+                    }
+                },
+                itemStyle: {
+                    borderRadius: 5,
+                    borderColor: '#2d3436',
+                    borderWidth: 2
+                },
+            }],
+            grid: {
+                right: 100
+            }
+        });
+
+        // 数据库技能横向柱状图
+        const dbChart = echarts.init(document.getElementById('dbChart'));
+        dbChart.setOption({
+            ...baseOption,
+            xAxis: {
+                type: 'value',
+                max: 95,
+                interval: 20,
+                axisLabel: {
+                    color: '#2d3436'
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: 'rgba(108, 92, 231, 0.1)'
+                    }
+                }
+            },
+            yAxis: createYAxis(['MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Oracle']),
+            series: [{
+                name: '技能值',
+                type: 'bar',
+                data: [92, 88, 85, 78, 82],
+                itemStyle: {
+                    color: '#6c5ce7',
+                    borderRadius: [0, 4, 4, 0]
+                },
+                label: {
+                    show: true,
+                    position: 'right',
+                    offset: [5, 0],
+                    color: '#2d3436'
+                },
+                emphasis: {
+                    itemStyle: {
+                        color: '#2d3436'
+                    }
+                },
+                itemStyle: {
+                    borderRadius: 5,
+                    borderColor: '#2d3436',
+                    borderWidth: 2
+                },
+            }],
+            grid: {
+                right: 100
+            }
+        });
+
+        // 云平台圆环图
+        const cloudChart = echarts.init(document.getElementById('cloudChart'));
+        cloudChart.setOption({
+            ...baseOption,
+            series: [{
+                type: 'pie',
+                radius: ['40%', '65%'],
+                center: ['50%', '50%'],
+                data: [
+                    { value: 10, name: 'AWS' },
+                    { value: 20, name: 'Azure' },
+                    { value: 25, name: 'Cloudflare' },
+                    { value: 15, name: '阿里云' },
+                    { value: 30, name: 'GitHub' }
+                ],
+                // label: {
+                //     formatter: function(params) {
+                //         // return `{logo|}${params.name}: {c} ({d}%)`;
+                //     },
+                //     rich: {
+                //         logo: {
+                //             backgroundColor: function(params) {
+                //                 return {
+                //                     // image: `/ZhangYonghao/img/icon/${params.name}.svg`
+                //                 };
+                //             },
+                //             width: 20,
+                //             height: 20
+                //         }
+                //     },
+                //     color: '#2d3436'
+                // },
+                labelLine: {
+                    lineStyle: {
+                        color: '#2d3436'
+                    },
+                    length: 20,
+                    length2: 30
+                },
+                itemStyle: {
+                    borderRadius: 5,
+                    borderColor: '#2d3436',
+                    borderWidth: 2
+                },
+                emphasis: {
+                    itemStyle: {
+                        color: '#2d3436'
+                    }
+                }
+            }],
+            legend: {
+                orient: 'horizontal',
+                bottom: 10,
+                data: ['AWS', 'Azure', 'Cloudflare', '阿里云', 'GitHub'],
+                textStyle: {
+                    color: '#2d3436'
+                }
+            },
+            tooltip: {
+                formatter: function(params) {
+                    return `${params.name}<br/>技能点：${params.value} (${params.percent}%)`;
+                }
+            }
+        });
+
+        // 响应式处理
+        window.addEventListener('resize', () => {
+            [frontendChart, backendChart, dbChart, cloudChart].forEach(chart => {
+                chart.resize({ animation: { duration: 500 } });
+            });
+        });
+    </script>
+</body>
+</html>
